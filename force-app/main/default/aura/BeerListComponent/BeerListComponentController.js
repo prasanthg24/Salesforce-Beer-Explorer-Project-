@@ -36,7 +36,7 @@
     },
     handler : function(component, event, helper) 
     {
-         alert('You open the alert!');
+        alert('You open the alert!');
         component.find('overlayLib').showCustomModal
         ({
             header: "Beer List Component",
@@ -51,5 +51,28 @@
         })
         
         
+    },
+    AddToCart : function(component, event, helper) 
+    {
+        
+        
+           var eventSource = event.getSource();
+      
+        var beerId = eventSource.get('v.name');
+        var index = eventSource.get('v.value');
+        var selectedBeer = component.get('v.recordList')[index];
+       console.log(' selectedBeer '+ selectedBeer.Id);
+     //  alert("selectedBeer.Id");
+        //alert(index)
+       
+
+        
+         var addToCartEvent = component.getEvent('CartEvent');
+        addToCartEvent.setParams
+        ({
+            beerRecord : selectedBeer
+        });
+        addToCartEvent.fire();
+                alert("fire");
     }
 })

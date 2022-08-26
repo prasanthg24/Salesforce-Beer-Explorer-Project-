@@ -4,6 +4,7 @@
    
     <aura:attribute name="recordList" type="Object"/>
     <aura:attribute name="beerId" type="String"/>
+      <aura:registerEvent name="CartEvent" type="c:AddToCartEvent" />
    
     <aura:attribute name="beervalue" type="string"/>
     <div  class="slds-grid slds-wrap" style="
@@ -12,8 +13,8 @@
                                              
                                              ">
         <!-- {!v.recordList} -->
-        {!v.recordid}
-        <aura:iteration items="{!v.recordList}" var="item">
+
+        <aura:iteration items="{!v.recordList}" var="item" indexVar = "index">
             <div class="slds-col slds-size_1-of-4 slds-p-around_small">
                 <lightning:card  title="{!item.Name}" footer="{!item.Brewery_Name__c}"
                                 iconName="custom:custom7" >
@@ -36,6 +37,12 @@
                     <aura:set attribute="actions">
                         <lightning:button name="{!item.Id}" label="View Details" value="View Details"
                                           variant="brand" onclick="{!c.showInfo}"/>
+                    </aura:set>
+                    
+                    <aura:set attribute="footer">
+                        <lightning:button name="{!item.Id}" label="Add to Cart" 
+                                          value= "{!index}"
+                                          variant="brand-outline" onclick="{!c.AddToCart}"/>
                     </aura:set>
                 </lightning:card>
             </div>

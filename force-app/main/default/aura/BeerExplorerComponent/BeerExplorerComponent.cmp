@@ -1,17 +1,21 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="BeerSearchAuraClass">
-    
-    <aura:handler name="BeerEvent" event="c:BeerSearchEvent" action="{!c.dohandle}" />
-    <aura:handler name="init" value ="{!this}" action = "{!c.dohandle}"/>
-    <aura:attribute name="beerList" type="Object" />
-    <div>
-        <c:HeaderComponent Heading="Beer Explorer " Message="Salesforce Batch 1 Team !!!"/>
+              
+       <aura:handler name="BeerEvent" event="c:AddToCartEvent" action="{!c.AddToCart}" />
+        <aura:handler name="BeerEvent" event="c:BeerSearchEvent" action="{!c.dohandle}" />
+        <aura:handler name="init" value ="{!this}" action = "{!c.dohandle}"/>
+        <aura:attribute name="beerList" type="Object" />
+        <aura:attribute name="beerRecord" type="Object"/>
         
-    </div>
-    <div  style ="background-color:orange;">
-        <c:BeerSearch />
-    </div>
-    <div>
+        <div>
+            <c:HeaderComponent  aura:id="headerComp" Heading="Beer Explorer " Message="Salesforce Batch 1 Team !!!"/>
+        </div>
         
-        <c:BeerListComponent  recordList ="{!v.beerList}" />
-    </div>
-</aura:component>
+        <div  style ="background-color:orange;">
+            <c:BeerSearch />
+        </div>
+  
+        
+        <div>
+            <c:BeerListComponent  recordList ="{!v.beerList}" />
+        </div>
+    </aura:component>

@@ -1,12 +1,12 @@
 <aura:component >
     <aura:attribute name="recordList" type="Object" />
-    <h1>Cart Info</h1>
+                                                          
     <lightning:layOut>
         <lightning:layOutitem>
-            <a href="JavaScript:void(0);" onclick="{!c.goToCart}" >
-                <lightning:icon iconName="utility:cart" size="large"/>
+            <a href="JavaScript:void(0);" onclick="{!c.goToCart}"  >
+                <lightning:icon iconName="standard:webcart" size="large"/>
             </a>
-            <span style="font-size: 1.1rem;">{!v.recordList.length}</span>
+            <span style="font-size: 2.1rem;"> 0 {!v.recordList.length}</span>
         </lightning:layOutitem>
     </lightning:layOut>
 
