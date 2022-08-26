@@ -1,0 +1,65 @@
+<aura:component  controller  ="ContactListController"  implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    
+    
+    <aura:handler name = "Quickcontact" event = "c:QuickContactEvent" action = "{!c.handlerComponentEvent}"/>
+    
+    <c:QuickContact accountId = "{!v.recordId}"></c:QuickContact>
+    
+    
+    
+    
+    
+    <aura:attribute name ="ContactList" type ="Contact[]"/>
+    
+    
+    <aura:handler name="init" value ="{!this}" action = "{!c.doInit}"/>
+    
+    <div class ="slds-p-around_small">
+        
+        <aura:iteration items="{!v.ContactList}" var="item">
+            <div class="slds-col slds-size_2-of-2 slds-p-around_small"><!---->
+                
+                <lightning:card title ="{!item.Name}" 
+                                
+                                iconName="Standard:contact">
+                    
+                    
+                    
+                    <aura:set attribute="actions">
+                        <lightning:button name="{!item.Id}" label ="View Details" variant ="success"
+                                          onclick ="{!c.Redirect}"
+                                          />
+                    </aura:set>
+                    
+                    <p class="slds-p-horizontal_small">
+                        {!item.Name} <br/>
+                        {!item.Id}<br/>
+                        {!item.Phone}<br/>
+                        {!item.Department}<br/>
+                        {!item.Email}<br/>
+                    </p>   
+                    
+                </lightning:card>
+            </div>	
+        </aura:iteration>
+        
+    </div>  
+    
+</aura:component>
+
+
+
+
+
+
+
+
+
+<!--  <aura:iteration  items="{!v.ContactList}" var ="con"> 
+            <lightning:card class="slds-p-around_medium" iconName="standard:contact">
+                {!con.FirstName}  &nbsp;  	 {!con.LastName} <br/>
+                {!con.Phone}    &nbsp; <br/>
+                {!con.Email}
+            </lightning:card>     
+        </aura:iteration>-->

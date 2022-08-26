@@ -1,0 +1,38 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="options" type="List" default=
+                    "[
+                     { label: 'English', value: 'en' },
+                     { label: 'German', value: 'de' },
+                     { label: 'Spanish', value: 'es' },
+                     { label: 'French', value: 'fr' },
+                     { label: 'Italian', value: 'it' },
+                     { label: 'Japanese', value: 'ja' }
+                     ]"/>
+    
+    
+    <div class="slds-p-around_small"  style="Background-color:#F5B041" > 
+        <lightning:button variant="Success" label="Quick Contact" 
+                          value="Quick Contact"
+                          onclick="{!c.createContact}" />
+        
+        
+        <lightning:button variant="brand" label="Edit Account"
+                          value="Edit Account"
+                          onclick="{!c.editRecord}" />
+    </div>
+    
+    &nbsp; &nbsp; &nbsp;
+    <div class="slds-p-around_small"  style="Background-color:#239B56">
+        
+        
+        <lightning:dualListbox name="languages1"
+                               label= "Select Languages"
+                               sourceLabel="Available"
+                               selectedLabel="Selected"
+                               fieldLevelHelp="Select your preferred languages"
+                               options="{!v.options}"
+                               onchange="{! c.handleChange }"/>
+        
+        
+    </div>
+</aura:component>

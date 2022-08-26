@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name ="Heading" type ="String" access ="public" />
+    <aura:attribute name ="Message" type ="String" access ="public" />
+    <div class="slds-p-around_medium" style ="
+                                              background-color: #781C68;
+                                              font-size: xxx-large;
+                                              text-align: center;
+                                              font-family: cursive;
+                                              color: white;
+                                              }
+                                              ">
+        {!v.Heading}
+        <br/>
+        {!v.Message}
+    </div>
+</aura:component>

@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="ContactRecord" type="Contact" default="{
+                                                                 'sobjectType' : 'Contact',
+                                                                 'FirstName' : '',
+                                                                 'LastName' : '',
+                                                                 'Email' : '',
+                                                                 'Phone' : ''
+                                                                 }" />
+    
+    
+    <aura:registerEvent name="CreateContacts" type="c:CreateContactsEvent" />
+    
+    <div class="slds-p-around_small" style="background-color:grey">
+  
+            <lightning:input label="FirstName" required="true"
+                             aura:id="newContact" 
+                             value="{!v.ContactRecord.FirstName}" />
+            <br/>
+            
+            <lightning:input label="LastName" required="true"
+                             aura:id="newContact" 
+                             value="{!v.ContactRecord.LastName}" />
+            <br/>
+            <lightning:input label="Email" required="true"
+                             aura:id="newContact" 
+                             value="{!v.ContactRecord.Email}" />
+            <br/>
+            <lightning:input label="Phone" required="true"
+                             aura:id="newContact" 
+                             value="{!v.ContactRecord.Phone}" />
+            <br/>
+            <lightning:button name="Review" label="Review" variant="brand" 
+                              onclick="{!c.handleReview}" />
+   
+    </div>
+</aura:component>

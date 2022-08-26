@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:button name="modal" label="overlay Button" onclick="{!c.handler}"/>
+    
+    <br></br>
+    <lightning:navigation aura:id="navigationLib"/>
+    <lightning:button name="navi" label="navigationButton" onclick="{!c.navigationHandler}"/>
+    <br></br>
+        <c:createBeerOrder></c:createBeerOrder>
+
+    
+</aura:component>

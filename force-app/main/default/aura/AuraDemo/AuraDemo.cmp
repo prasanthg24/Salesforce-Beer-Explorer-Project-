@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="fname" type="string" ></aura:attribute>
+    <aura:attribute name="Lname" type="string" ></aura:attribute>
+    
+    
+    <div class="slds-p-around_small" style="background-color:white">
+        
+        <h1>Registeration Form</h1>
+        
+        <lightning:input name="Name" label="Enter The Name " />
+        
+        
+        <lightning:input name="Name" label="Enter The Last Name " />
+        
+        <lightning:button variant="brand" label="submit" title="Brand action" onclick="{! c.handleClick }" />
+        
+    </div>
+</aura:component>

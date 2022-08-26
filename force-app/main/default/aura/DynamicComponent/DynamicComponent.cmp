@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="message" type="String" access="public"/>
+    
+    <div class="slds-p-around_small"  style="background-color:orange">
+        <center> <h1 >Dynamic Component</h1> 
+        <br></br>
+        <lightning:button variant="brand" label="clickme" title="Brand action" onclick="{! c.dynamicHandler }" />
+		&nbsp;&nbsp;&nbsp;
+        Button click Notification - {!v.message}
+            </center>
+    </div>
+    
+    
+    <div class="slds-p-around_small" style="background-color:yellowgreen">
+        &nbsp;&nbsp;
+        Body -  {!v.body}
+        &nbsp;&nbsp;
+    </div>
+    
+</aura:component>

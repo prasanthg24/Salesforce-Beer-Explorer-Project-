@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    
+    <aura:attribute name="mark" type="Integer" access="public" />
+    <aura:attribute name="percentage" type="Integer"  access="public"/>
+    <!-- public string name;-->
+    
+    <div class="slds-p-around_medium">
+        <lightning:input type="number" name="input1" label="Enter a number" value ="{!v.mark}" />
+         {!v.mark}
+        <lightning:input type="number" name="input2" label="Enter a percentage" value ="{!v.percentage}" formatter ="percent-fixed"/>
+         {!v.percentage}
+    </div>
+    
+    
+    
+    {!div(mult(v.mark,v.percentage),100)}
+    
+    <!-- 500 10 = 50 {!mult(v.mark,v.percentage)}-->
+  
+</aura:component>

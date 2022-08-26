@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <div class="slds-m-around_small">
+    <h1>Welcome to Aura Component Class </h1>
+    <h2>2022 </h2>
+    <h3>SALESFORCE BATCH 1</h3>
+    </div>
+    <lightning:card class="slds-p-around_large" > 
+
+        <lightning:card class="slds-p-around_large"   >
+            <h1 class="red">What is Aura?</h1>
+            <br/>
+            <h6>Aura is a framework for developing apps for mobile and desktop devices. 
+                In existence since 2013, Aura enables developers to build apps that are 
+                independent of data that resides in Salesforce, so development can be 
+                less disruptive to day-to-day users.
+            </h6>
+        </lightning:card>
+        
+    </lightning:card>
+    <ul>
+        <li class="red">I'm red.</li>
+        <li class="blue">I'm blue.</li>
+        <li class="green">I'm green.</li>
+    </ul>
+</aura:component>

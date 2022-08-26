@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    <!-- 
+ <aura:attribute name="test" type ="string" access ="public" default ="Salesforce Aura"></aura:attribute>   
+    {!v.test} 
+    <br></br>
+    
+    
+    <lightning:input  aura:id="input" label="Enter the  text" />
+    <br></br>
+    
+    <lightning:button variant="success" label="Button" onclick="{!c.handleClick }" />
+
+    <aura:attribute name="num1" type="Integer" Access="public" default ='20'></aura:attribute>
+      <aura:attribute name="num2" type="Integer" Access="public" default ='10'></aura:attribute>
+    <aura:if isTrue="{greaterthan(!v.num1,!v.num2)}">
+        Given value is True
+        <aura:set attribute="else">
+            Given value is  False
+        </aura:set>
+    </aura:if> -->
+    <aura:attribute name= "colors" type = "string[]" default ="['red','green','blue']" access ="public" />
+    <br></br>
+     <aura:iteration items="{!v.colors}" var="item">
+       <P>{!item} </P> 
+    </aura:iteration> 
+    
+    
+   <!--  <aura:attribute name="groceries" type="List" 
+                  default="[ 'Eggs', 'Bacon', 'Bread' ]"/>
+    
+    <aura:iteration items="{!v.groceries}" var="item">
+        <p>{!item}</p>
+    </aura:iteration>-->
+  
+    
+</aura:component>

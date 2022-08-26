@@ -1,0 +1,54 @@
+<aura:component  controller  ="ContactListController"  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+ <aura:registerEvent name = "Quickcontact" type = "c:QuickContactEvent"/>   
+    
+    
+    <aura:attribute name ="CreateContact" type= "Contact" Access = "public"
+                    default="{
+                             sObjectType : 'Contact',
+                             FirstName : '',
+                             LastName : '',
+                             Email : '',
+                             Phone : '' 
+                             }" >
+    </aura:attribute>
+    
+    <aura:attribute name= "accountId" type ="string" Access ="public"></aura:attribute>
+    
+    <div class="slds-p-around_small"  style="background-color:white;">    
+        {!v.accountId}
+        <div class="slds-grid slds-einstein-header slds-card__header" >
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-utility-salesforce1">
+                            
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-truncate" title="Einstein (10+)">
+                            <a href="#" class="slds-card__header-link" title="Einstein (10+)">
+                                <span class="slds-text-heading_small">Create Quick Contact</span>
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+                <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+            </header>
+        </div>
+        
+        
+        
+        <lightning:input  type="Text" name="FirstName" label="Enter a FirstName" value="{!v.CreateContact.FirstName}" required="true"/>
+        <lightning:input type="Text" name="LastName" label="Enter a LastName" value="{!v.CreateContact.LastName}" required="true" />
+        <lightning:input type="Phone" name="Phone" label="Enter a Phone" value="{!v.CreateContact.Phone}" required="true"/>
+        <lightning:input type="Email" name="Email" label="Enter a Email" value="{!v.CreateContact.Email}" required="true" />
+        <br></br>
+        
+        
+        <lightning:button variant="brand" label="Create Contact " onclick="{! c.ContactCreation }"/>
+        
+    </div>
+    
+    
+</aura:component>

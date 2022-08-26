@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="BeerSearchAuraClass">
+    
+    <aura:handler name="BeerEvent" event="c:BeerSearchEvent" action="{!c.dohandle}" />
+    <aura:handler name="init" value ="{!this}" action = "{!c.dohandle}"/>
+    <aura:attribute name="beerList" type="Object" />
+    <div>
+        <c:HeaderComponent Heading="Beer Explorer " Message="Salesforce Batch 1 Team !!!"/>
+        
+    </div>
+    <div  style ="background-color:orange;">
+        <c:BeerSearch />
+    </div>
+    <div>
+        
+        <c:BeerListComponent  recordList ="{!v.beerList}" />
+    </div>
+</aura:component>

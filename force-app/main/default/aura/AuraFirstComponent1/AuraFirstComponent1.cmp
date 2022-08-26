@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <Aura:Attribute name= 'truthy' type = 'Boolean' access ='public' default = 'True' />
+    <aura:attribute name = 'listofitems' type ='List' access ='public' default = "['red','Green','Blue','Orange']"/>
+    
+    
+   <!-- <div class="slds-p-around_small">
+        <h1 class="h1"> Welcome to Salesforce Aura Session</h1>
+        <h1 style="Background-color:yellow; color:red">Saleforce Developer and Trainer</h1>
+        <p> Prasanth Gopinathan</p>
+    </div>-->
+    
+  
+    <aura:iteration items="{!v.listofitems}" var="item">
+        {!item}<br/>
+    </aura:iteration>
+
+    
+    <aura:if isTrue="{!v.truthy}"> 
+        True
+        <aura:set attribute="else">
+            False
+        </aura:set>
+    </aura:if> 
+    
+    
+</aura:component>

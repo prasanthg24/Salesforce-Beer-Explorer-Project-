@@ -1,0 +1,58 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <!-- <H1>Aura Attribute</H1>
+    <Aura:Attribute name= "name1" type = "String" access ="public" default ='Welcome to Aura'/>
+    
+    {!V.name1}
+    <Aura:Attribute name= 'rollno' type = 'integer' access ='public'  default = '17107032' />
+    
+    {!V.rollno}
+    
+    <Aura:Attribute name= 'contact' type = 'contact' access ='public' default = '9788156163' />
+    
+    <Aura:Attribute name= "colors" type = "string[]" default ="['red','green','blue']" access ="public" />
+    <br></br>
+    {!v.colors[2]} <br></br>
+
+    <Aura:Attribute name= 'colorsList' type = 'List' default ="['red','green','blue']" access ='public ' />
+
+
+
+    {!v.colorsList[2]}
+    <Aura:Attribute name= 'colorsset' type = 'set' default ="['red','green','blue']" access ='public ' />
+
+
+
+	<aura:attribute name="testMap" type="Map" default="{ a: 'label1', b: 'label2' }" />
+
+
+    <div class="slds-p-around_small">
+        color = {!v.colors[0]} <br> </br> 
+        name = {!v.name1}<br> </br> 
+        rollno = {!v.rollno}<br> </br> 
+        contact = {!v.contact}<br> </br> 
+        <br> </br>
+        
+        <Lightning:input aura:id ='age' Label= "Enter Age "  >
+        </Lightning:input>  <br> </br>
+        <lightning:button class="slds-button slds-button_success" label= "component button" onclick ="{!c.doclick}"> </lightning:button>
+    </div>
+    -->
+    
+    
+    
+    <Aura:Attribute name= "msg" type = "String" access ="public" default ='Welcome to Aura'/>
+    
+    <lightning:button variant="brand" label="onclick" title="Brand action" onclick="{! c.handleClick }" />
+    <div>
+        {!v.msg}
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+</aura:component>

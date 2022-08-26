@@ -1,0 +1,11 @@
+.THIS.board {
+    background :white;
+    position : relative;
+    
+}
+
+.THIS .moveLeft
+{
+    text-transform :uppercase;
+    font-weight : bold;
+}
