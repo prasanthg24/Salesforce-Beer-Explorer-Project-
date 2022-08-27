@@ -1,6 +1,6 @@
 ({
-    
     dohandle : function(component, event, helper) {
+       
         var searchParam = event.getParam("searchText");
         
         console.log(searchParam);
@@ -21,13 +21,19 @@
         });
         $A.enqueueAction(action);
     },
-    AddToCart : function(component, event, helper)
-    {
-        alert("handler")
-        /*var params = event.getParam('beerRecord');
-    //component.set('v.beerRecord', beerRecord);
-      var headerComp = component.find('headerComp');
-       headerComp.updateCart(params);*/
-    },
+    
+    updateCart :function(component, event, helper) {
+    
+         
+               alert("Handler Fired ");
+        
+   		/*var params = event.getParam('cartRecord');
+  
+        //component.set('v.beerRecord', beerRecord);
+        var headerComp = component.find('headerComp');
+        headerComp.updateCart(params);
+        
+        alert("params")*/
+    }
     
 })

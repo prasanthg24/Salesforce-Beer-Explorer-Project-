@@ -1,19 +1,14 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
-  
-     <lightning:overlayLibrary aura:id="overlayLib"/>
-   
+    
+    <aura:registerEvent name="addToCart" type="c:cartEvent" />
+    
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/>
     <aura:attribute name="recordList" type="Object"/>
     <aura:attribute name="beerId" type="String"/>
-      <aura:registerEvent name="CartEvent" type="c:AddToCartEvent" />
-   
     <aura:attribute name="beervalue" type="string"/>
-    <div  class="slds-grid slds-wrap" style="
-                                             
-                                             background-color: #FFD59F;
-                                             
-                                             ">
-        <!-- {!v.recordList} -->
-
+    
+    <div  class="slds-grid slds-wrap" style="background-color: #FFD59F; ">
         <aura:iteration items="{!v.recordList}" var="item" indexVar = "index">
             <div class="slds-col slds-size_1-of-4 slds-p-around_small">
                 <lightning:card  title="{!item.Name}" footer="{!item.Brewery_Name__c}"
@@ -35,7 +30,8 @@
                         </div>
                     </p>
                     <aura:set attribute="actions">
-                        <lightning:button name="{!item.Id}" label="View Details" value="View Details"
+                        <lightning:button name="{!item.Id}" label="View Details" 
+                                          value="View Details"
                                           variant="brand" onclick="{!c.showInfo}"/>
                     </aura:set>
                     
@@ -47,10 +43,5 @@
                 </lightning:card>
             </div>
         </aura:iteration>
-       
-        <!--{!v.body}-->
-        <!--<aura:if isTrue="{!v.beerId !=null}">
-            <c:BeerDetail beerId="{!v.beerId}" />
-        </aura:if>  -->
     </div>
 </aura:component>

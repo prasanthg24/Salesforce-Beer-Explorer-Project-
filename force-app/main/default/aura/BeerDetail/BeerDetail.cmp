@@ -3,8 +3,7 @@
     <aura:attribute name="beerName" type="String" />
     <lightning:navigation aura:id="navigation" />
 	<div class="slds-p-around_small">
-        
-        {!v.beerId}<br/>
+
 
         <lightning:recordForm 
                               recordId="{!v.beerId}" 
@@ -14,8 +13,8 @@
                               mode="readonly" />
         <div class="slds-p-around_small">
         
-        	<lightning:button value="Order Now" label="Order Now" variant="brand" 
-                              onclick="{!c.doOrder}" />
+        <center><lightning:button value="Order Now" label="Order Now" variant="brand" 
+                              onclick="{!c.doOrder}" /> </center>	
         </div>
     </div>
 </aura:component>

@@ -4,7 +4,7 @@
         var eventSource = event.getSource();
         var beerObj = eventSource.get('v.name');
         var beerName = eventSource.get('v.value');
-        console.log('beerName ', beerName);
+        console.log('beerName ', beerObj);
         component.set('v.beerId', beerObj);
         // <c:BeerDetail beerId="{!v.beerId}" />
         //createComponent(String type, Object attributes, function callback)
@@ -18,7 +18,7 @@
                 if (status === "SUCCESS")   
                 {   
                     component.find("overlayLib").showCustomModal({
-                        header: "Beer List Component",
+                        header: "Beer Detail ",
                         body: beerDetails,
                         footer:"Footer Test",
                         closeCallback: function() 
@@ -34,45 +34,27 @@
         
         
     },
-    handler : function(component, event, helper) 
-    {
-        alert('You open the alert!');
-        component.find('overlayLib').showCustomModal
-        ({
-            header: "Beer List Component",
-            body: "Welcome to Beer World",
-            showCloseButton: true,
-            footer:"Footer Test",
-            
-            closeCallback: function() 
-            {
-                alert('You closed the alert!');
-            }
-        })
-        
-        
-    },
     AddToCart : function(component, event, helper) 
     {
         
+        var addToCartEvent = component.getEvent('addToCart');
         
-           var eventSource = event.getSource();
-      
+        var eventSource = event.getSource();
         var beerId = eventSource.get('v.name');
         var index = eventSource.get('v.value');
         var selectedBeer = component.get('v.recordList')[index];
-       console.log(' selectedBeer '+ selectedBeer.Id);
-     //  alert("selectedBeer.Id");
-        //alert(index)
-       
-
+        console.log(' selectedBeer '+ selectedBeer.Id);
         
-         var addToCartEvent = component.getEvent('CartEvent');
-        addToCartEvent.setParams
-        ({
-            beerRecord : selectedBeer
-        });
+        console.log(' selectedBeer '+ selectedBeer.Name);
+        console.log(' selectedBeer '+ selectedBeer.Alcohol__c);
+        console.log(' selectedBeer '+ selectedBeer.Price__c);
+        
+        
+        addToCartEvent.setParams({  cartRecord: selectedBeer  });
         addToCartEvent.fire();
-                alert("fire");
+        
+        alert("addToCartEvent fired")
+        
+        
     }
 })

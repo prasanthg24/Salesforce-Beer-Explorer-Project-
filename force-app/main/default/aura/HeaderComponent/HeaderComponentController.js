@@ -1,6 +1,6 @@
 ({
     updateCart : function(component, event, helper) {
-        alert("test header")
+        alert(" header component")
         var params = event.getParam('arguments');
         if(params){
             var beerRecord = params.beerRecord;
@@ -13,6 +13,7 @@
                 existingRecords.push(beerRecord);
                 component.set('v.recordList', existingRecords);
             }
+            
             var toastEvent = $A.get("e.force:showToast");
             toastEvent.setParams({
                 "title": "Success!",

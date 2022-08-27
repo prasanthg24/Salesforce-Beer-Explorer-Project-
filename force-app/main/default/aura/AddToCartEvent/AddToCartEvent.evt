@@ -1,3 +1,11 @@
 <aura:event type="COMPONENT" description="Event template" >
-    <aura:attribute name="beerRecord" type="Object" />
+   
+    
+    
+    <aura:attribute name="beerRecord" type="object" />
+    
+    
+    <!--<aura:attribute name="beerId" type ="String"/>-->
+
+
 </aura:event>

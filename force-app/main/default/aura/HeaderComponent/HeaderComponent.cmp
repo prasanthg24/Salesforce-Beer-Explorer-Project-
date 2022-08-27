@@ -1,9 +1,11 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
     <aura:attribute name ="Heading" type ="String" access ="public" />
     <aura:attribute name ="Message" type ="String" access ="public" />
+      <aura:attribute name="recordList" type="Object" />
+    
+    
     <aura:method name="updateCart" action="{!c.updateCart}" access="public">
         <aura:attribute name="beerRecord" type="Object" />
-        <aura:attribute name="recordList" type="Object" />
     </aura:method>
     
     
