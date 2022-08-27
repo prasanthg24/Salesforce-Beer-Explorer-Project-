@@ -25,15 +25,14 @@
     updateCart :function(component, event, helper) {
     
          
-               alert("Handler Fired ");
+               alert("Handler  ");
         
-   		/*var params = event.getParam('cartRecord');
+   		var params = event.getParam('cartRecord');
   
         //component.set('v.beerRecord', beerRecord);
         var headerComp = component.find('headerComp');
         headerComp.updateCart(params);
-        
-        alert("params")*/
+ 
     }
     
 })

@@ -34,7 +34,28 @@
         
         
     },
-    AddToCart : function(component, event, helper) 
+     test  : function(component, event, helper) 
+    {
+        
+      
+        
+        var eventSource = event.getSource();
+        var beerId = eventSource.get('v.name');
+        var index = eventSource.get('v.value');
+        var selectedBeer = component.get('v.recordList')[index];
+        console.log(' selectedBeer '+ selectedBeer.Id);
+      //    var addToCartEvent = component.getEvent('test');
+        var addToCartEvent = $A.get("e.c:AddToCartEvent");
+        
+        
+        addToCartEvent.setParams({  "beerId": selectedBeer.Id  });
+        addToCartEvent.fire();
+        
+        alert("addToCartEvent fired")
+        
+        
+    }
+    ,AddToCart : function(component, event, helper) 
     {
         
         var addToCartEvent = component.getEvent('addToCart');
@@ -53,7 +74,7 @@
         addToCartEvent.setParams({  cartRecord: selectedBeer  });
         addToCartEvent.fire();
         
-        alert("addToCartEvent fired")
+        alert(" fired")
         
         
     }

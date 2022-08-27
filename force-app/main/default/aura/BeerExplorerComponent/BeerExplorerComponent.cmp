@@ -2,11 +2,11 @@
     <aura:handler name="init" value ="{!this}" action = "{!c.dohandle}"/>
     
     <aura:handler name="BeerEvent" event="c:BeerSearchEvent" action="{!c.dohandle}" />
+     <aura:handler name="test" event="c:cartEvent" action="{!c.updateCart}"/>
     
+ 
     
-    <aura:handler name="CartInfo" event="c:cartEvent" action="{!c.updateCart}" />
-    
-    
+    <!--<aura:handler name="CartInfo" event="c:AddToCartEvent" action="{!c.updateCart}" />    -->
     <aura:attribute name="beerList" type="Object" />
     <aura:attribute name="beerRecord" type="Object"/>
     
