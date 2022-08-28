@@ -21,18 +21,16 @@
         });
         $A.enqueueAction(action);
     },
-    
-    updateCart :function(component, event, helper) {
-    
-         
-               alert("Handler  ");
-        
-   		var params = event.getParam('cartRecord');
-  
+
+    handleApplicationEvent : function(component, event, helper) 
+    {
+        alert("Event Handler Called")
+
+        var params = event.getParam('beerRecord');
         //component.set('v.beerRecord', beerRecord);
         var headerComp = component.find('headerComp');
         headerComp.updateCart(params);
- 
     }
+    
     
 })

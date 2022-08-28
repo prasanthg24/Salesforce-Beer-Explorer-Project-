@@ -1,6 +1,6 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
     
-
+    <aura:registerEvent name="appEvent" type="c:CartInfoEvent"/>
     
     <lightning:overlayLibrary aura:id="overlayLib"/>
     <aura:attribute name="recordList" type="Object"/>
