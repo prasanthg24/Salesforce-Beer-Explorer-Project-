@@ -32,22 +32,7 @@
                     };
                 pageReference.navigate(pageReferenceNav); 
                 
-            } else if (saveResult.state === "INCOMPLETE") {
-                console.log("User is offline, device doesn't support drafts.");
-            } else if (saveResult.state === "ERROR") {
-                console.log('Problem saving contact, error: ' + 
-                            JSON.stringify(saveResult.error));
-                var resultsToast = $A.get("e.force:showToast");
-                resultsToast.setParams({
-                    "title": "Error While Placing Your Order.",
-                    "message": JSON.stringify(saveResult.error),
-                    "type" : "success"
-                });
-                resultsToast.fire();
-            } else {
-                console.log('Unknown problem, state: ' + saveResult.state +
-                            ', error: ' + JSON.stringify(saveResult.error));
-            }
+            } 
         });
     }
 })
