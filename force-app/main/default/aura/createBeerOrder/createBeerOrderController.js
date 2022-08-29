@@ -5,7 +5,7 @@
             var state = pageReference.state;
             
             component.set('v.beerId', state.beerId__c);
-            component.find("recordViewer").reloadRecord();
+            component.find("recordEditor").reloadRecord();
         }
         component.find("newRecordCreator").getNewRecord(
             "Beer_Order__c", 
@@ -47,7 +47,8 @@
         component.set("v.beerOrder.Ordered_By__c", userId); 
         component.set("v.beerOrder.Order_Amount__c", parseInt(totalPrice));
         component.find("newRecordCreator").saveRecord(function(saveResult) {
-            if (saveResult.state === "SUCCESS" || saveResult.state === "DRAFT") {
+            if (saveResult.state === "SUCCESS" || saveResult.state === "DRAFT")
+             {
                 var resultsToast = $A.get("e.force:showToast");
                 resultsToast.setParams({
                     "title": "Order Placed",
@@ -55,27 +56,16 @@
                     "type" : "success"
                 });
                 resultsToast.fire();
+
+                helper.updateBeerQty(component, event,quantity,saveResult.recordId);
                 
-                var pageReference = component.find("navigation");
-                var pageReferenceNav = 
-                    {    
-                        "type": "standard__component",
-                        "attributes": 
-                        {
-                            "componentName": "c__OrderDetails"    
-                        },    
-                        state: 
-                        {
-                            c__orderId:saveResult.recordId
-                        }
-                    };
-                pageReference.navigate(pageReferenceNav); 
-                
-                
-                
-            } else if (saveResult.state === "INCOMPLETE") {
+            }
+             else if (saveResult.state === "INCOMPLETE") 
+            {
                 console.log("User is offline, device doesn't support drafts.");
-            } else if (saveResult.state === "ERROR") {
+            } 
+            else if (saveResult.state === "ERROR") 
+            {
                 console.log('Problem saving contact, error: ' + 
                             JSON.stringify(saveResult.error));
                 var resultsToast = $A.get("e.force:showToast");

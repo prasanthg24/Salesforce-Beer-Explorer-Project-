@@ -1,10 +1,10 @@
 <aura:component implements="lightning:isUrlAddressable,flexipage:availableForAllPageTypes">
     <aura:attribute name="beerId" type="String" /> 
  
-     <lightning:navigation aura:id="navigation" />
+    <lightning:navigation aura:id="navigation" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
-    
+
     <!-- USE LDS to get the new template of Beer Order Record -->
     <aura:attribute name="newRecordObject" type="Object"/>
     <aura:attribute name="beerOrder" type="Object"/>
@@ -23,13 +23,13 @@
     <aura:attribute name="record" type="Object" />
     <aura:attribute name="simpleRecord" type="Object" />
     <aura:attribute name="recordError" type="String" />
-    <force:recordData aura:id="recordViewer"
+    <force:recordData aura:id="recordEditor"
                       layoutType="FULL"
                       recordId="{!v.beerId}"
                       targetError="{!v.recordError}"
                       targetRecord="{!v.record}"
                       targetFields ="{!v.simpleRecord}"
-                      mode="VIEW" />
+                      mode="EDIT" />
     
     
     
