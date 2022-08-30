@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component controller ="BeerDataTable" >
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="columns" type="Object" />
 
