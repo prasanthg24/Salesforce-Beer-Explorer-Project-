@@ -2,7 +2,7 @@
     <aura:registerEvent name="BeerEvent" type="c:BeerSearchEvent" />
     
     <div class="slds-p-around_medium"  style="
-                                              background-color: #319DA0;  
+                                              background-color: #0fc947;  
                                               
                                               ">
         <lightning:input
