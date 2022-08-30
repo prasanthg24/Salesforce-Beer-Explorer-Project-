@@ -4,11 +4,13 @@
         component.set('v.columns', [
             {label: 'Beer Order ID', fieldName: 'Name', type: 'text'},
             {label: 'Amount', fieldName: 'Order_Amount__c', type: 'text'},
-            {label: 'Beer Name', fieldName: 'Beer__c', type: 'text'},
-            {label: 'Postal_Code__c', fieldName: 'Shipping_Postal_Code__c', type: 'text'},
-            {label: 'Beer Order Record ID', fieldName: 'Id', type: 'text'}
-
+            {label: 'Billing City', fieldName: 'Billing_City__c', type: 'text'},
+            {label: 'Country', fieldName: 'Billing_Country__c', type: 'text'},
+            {label: 'Postal Code', fieldName: 'Shipping_Postal_Code__c', type: 'text'},
            
+           
+
+            
         ]);
 
         var action = component.get('c.getdatatable');

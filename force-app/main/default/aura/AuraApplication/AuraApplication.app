@@ -1,8 +1,11 @@
 <aura:application  extends="force:slds" >
     
-    <c:CreateContactComponent/>
+
+
+<c:DataTableComponent></c:DataTableComponent>
+  <!--     <c:CreateContactComponent/>
     <c:ReviewContact/>
- <!--     <c:contactList></c:contactList>
+   <c:contactList></c:contactList>
   <c:AuraComponentClass></c:AuraComponentClass>
     
     
