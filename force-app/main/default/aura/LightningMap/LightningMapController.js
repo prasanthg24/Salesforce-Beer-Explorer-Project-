@@ -15,6 +15,6 @@
                 description: 'Landmark, historic home & office of the United States president, with tours for visitors.'
             }
         ]);
-        component.set('v.zoomLevel', 16);
+        component.set('v.zoomLevel', 10);
     }
 })
