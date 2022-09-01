@@ -1,6 +1,14 @@
-<aura:component >
+<aura:component  controller="CartDetailAuraService" >
+
     <aura:attribute name="recordList" type="Object" />
-    <lightning:navigation aura:id="navigation" />                                               
+    
+    <aura:attribute name="beerNameList" type="String[]" />
+    
+    <lightning:navigation aura:id="navigation" />  
+    
+    <aura:handler name="change" value="{!v.recordList}" action="{!c.AddingProduct}"/>
+    
+    
     <lightning:layOut>
         <lightning:layOutitem>
             <a href="JavaScript:void(0);" onclick="{!c.goToCart}"  >

@@ -61,7 +61,7 @@ public class CartDetailAuraService {
                     update cartItemToUpdate;
                 return cartId;
     }
-    /*
+    
     @AuraEnabled 
     public static String getCartId(List<String> beerList)
     {
@@ -79,15 +79,18 @@ public class CartDetailAuraService {
                                       Cart_Status__c='Open', Is_Active__c=true, User__c = UserInfo.getUserId());
             insert cart;
             createCartItems(beerList, cart.Id);
+            system.debug(cart);
             return  cart.Id;
+
         }
     }
     private static List<Cart__c> getCart(){
+        system.debug('called get Cart');
         List<Cart__c> cartList = [Select Id, Name From Cart__c Where User__c=: UserInfo.getUserId() AND Is_Active__c = true];
         system.debug('cartlist:'+cartList);
         return cartList;
 
-    }*/
+    }
     
     @AuraEnabled
     public static Map<Id, Cart_Item__c> getCartItems(String CartId){

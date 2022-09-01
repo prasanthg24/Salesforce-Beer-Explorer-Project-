@@ -1,4 +1,3 @@
-
 public class AccountDataTable {
 	@AuraEnabled
     public static List<Account> fetchAccount(){
