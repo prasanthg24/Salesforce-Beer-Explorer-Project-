@@ -1,14 +1,17 @@
 <aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes">
+    
     <aura:attribute name="mapMarkers" type="Object"/>
+
     <aura:attribute name="zoomLevel" type="Integer" />
 
 
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
 
-    <lightning:map 
-    mapMarkers="{! v.mapMarkers }" 
-    zoomLevel="{!v.zoomLevel}" 
-    showFooter ="true"/>
+        <lightning:map 
+                        mapMarkers="{!v.mapMarkers }" 
+                        zoomLevel="{!v.zoomLevel}" 
+                        showFooter ="true"
+        />
 
 
 </aura:component>	
