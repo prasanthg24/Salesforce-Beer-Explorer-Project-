@@ -7,7 +7,14 @@
                                     color: rgb(248, 248, 248);"> 
     <h1> Cart Detail Component</h1>
 </div>
-
+<lightning:layout multipleRows="true">
+    <lightning:layoutItem padding="around-small" size="12">
+        <div class="page-header">
+            
+                 <h1> Cart Detail Component</h1>
+        </div>
+    </lightning:layoutItem>
+</lightning:layout>
 
 
 </aura:component>
