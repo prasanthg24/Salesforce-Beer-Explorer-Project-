@@ -24,7 +24,7 @@
 
     handleApplicationEvent : function(component, event, helper) 
     {
-        alert("Event Handler Called")
+        console.log("Event Handler Called")
 
         var params = event.getParam('beerRecord');
         //component.set('v.beerRecord', beerRecord);

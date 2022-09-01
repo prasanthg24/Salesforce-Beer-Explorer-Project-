@@ -36,7 +36,7 @@
     },
     AddToCart : function(component, event, helper) 
     {
-        alert( " Add to Cart ");
+        console.log( " Add to Cart ");
         var eventSource = event.getSource();
         var index = eventSource.get('v.value');
         var selectedBeerData = component.get('v.recordList')[index];

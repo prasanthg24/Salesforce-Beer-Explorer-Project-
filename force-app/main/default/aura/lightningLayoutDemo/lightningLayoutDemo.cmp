@@ -1,4 +1,5 @@
 <aura:component>
+    
 <p>This example creates a three column page layout with a container-wide header using nested <code>lightning:layout</code> components. A <code>lightning:layoutItem</code> of size="12" wraps the <code>lightning:layout</code> that contains multiple layout items.</p>
     <div class="c-container">
         <lightning:layout multipleRows="true">

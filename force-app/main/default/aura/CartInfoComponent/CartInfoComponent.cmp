@@ -1,6 +1,6 @@
 <aura:component >
     <aura:attribute name="recordList" type="Object" />
-                                                          
+    <lightning:navigation aura:id="navigation" />                                               
     <lightning:layOut>
         <lightning:layOutitem>
             <a href="JavaScript:void(0);" onclick="{!c.goToCart}"  >

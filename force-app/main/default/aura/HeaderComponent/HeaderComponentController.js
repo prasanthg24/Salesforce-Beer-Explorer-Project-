@@ -1,6 +1,6 @@
 ({
     updateCart : function(component, event, helper) {
-        alert(" header component")
+        console.log(" header component")
         var params = event.getParam('arguments');
         if(params){
             var beerRecord = params.beerRecord;

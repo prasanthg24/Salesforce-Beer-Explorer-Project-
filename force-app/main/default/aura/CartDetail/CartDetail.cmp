@@ -1,0 +1,13 @@
+<aura:component implements="lightning:isUrlAddressable" >
+  
+<div class="slds-page-header " style =" background-color: #2a39ff;
+                                    font-size: xxx-large;
+                                    text-align: center;
+                                    font-family: cursive;
+                                    color: rgb(248, 248, 248);"> 
+    <h1> Cart Detail Component</h1>
+</div>
+
+
+
+</aura:component>

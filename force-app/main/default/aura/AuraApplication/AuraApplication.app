@@ -1,8 +1,8 @@
 <aura:application  extends="force:slds" >
     
 
-
-<c:DataTableComponent></c:DataTableComponent>
+<c:lightningLayoutDemo></c:lightningLayoutDemo>
+<!--<c:DataTableComponent></c:DataTableComponent>-->
   <!--     <c:CreateContactComponent/>
     <c:ReviewContact/>
    <c:contactList></c:contactList>
