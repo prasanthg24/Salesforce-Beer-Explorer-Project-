@@ -12,7 +12,9 @@
                     Country: 'India',
                     Street:'NO 4 Marudham Nagar Extn',
                     PostalCode: '641041'
-                }
+                },
+                title :"Abi Home ",
+                icon: 'custom:custom54',
             },
                { location:
                 {
@@ -22,44 +24,24 @@
                     Street:'13 Amman Pudur',
                     PostalCode: '641023'
                 },
-                title :" Podanur "
-
+                title :" Prasanth Home ",
+                icon: 'custom:custom74',
             },
+            
+            { location:
                 {
-                    location: {
-                        City: 'Juan-les-Pins',
-                        Country: 'France'
-                    },
-    
-                    value: 'France6',
-                    icon: 'custom:custom74',
-                    title: 'Juan-les-Pins'
+                    City: 'Chennai',
+                    State: 'TamilNadu',
+                    Country: 'India',
+                    Street:'Kovilambakkam',
+                    PostalCode: '600129'
                 },
-                {
-                    location: {
-                        City: 'Cannes',
-                        Country: 'France'
-                    },
-    
-                    value: 'France7',
-                    icon: 'custom:custom3',
-                    title: 'Cannes'
-                },
-                {
-                    location: {
-                        City: 'Saint-Raphaël',
-                        Country: 'France'
-                    },
-    
-                    value: 'France8',
-                    icon: 'custom:custom54',
-                    title: 'Saint-Raphaël'
-                },
-
+                title :" Dhanush  Home ",
+                icon: 'custom:custom64',
+            },
             
         ] );
-       
         
-        component.set('v.zoomLevel', 10);
+        component.set('v.zoomLevel', 5);
     }
 })
