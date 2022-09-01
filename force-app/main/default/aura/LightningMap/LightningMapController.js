@@ -4,9 +4,11 @@
         component.set('v.mapMarkers', [
             {
                 location: {
-                    Street: '1600 Pennsylvania Ave NW',
-                    City: 'Washington',
-                    State: 'DC'
+                    Street: 'Badrakaliamman real estate',
+                    City: 'Podanur',
+                    PostalCode: '641023',
+                    State: 'TamilNadu',
+                    Country: 'India'
                 },
 
                 title: 'The White House',
