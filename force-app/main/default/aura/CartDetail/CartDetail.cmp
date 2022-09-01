@@ -7,6 +7,9 @@
                                     color: rgb(248, 248, 248);"> 
     <h1> Cart Detail Component</h1>
 </div>
+
+
+
 <lightning:layout multipleRows="true">
     <lightning:layoutItem padding="around-small" size="12">
         <div class="page-header">
@@ -14,7 +17,30 @@
                  <h1> Cart Detail Component</h1>
         </div>
     </lightning:layoutItem>
-</lightning:layout>
 
+    <lightning:layoutItem padding="around-small" size="12">
+        <lightning:layout>
+         
+            <lightning:layoutItem padding="around-small" size="3">
+               
+                <div class="page-section page-right">
+                    <h2>Frequently Purchased..</h2>
+                    <p>
+                        
+                    </p>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:layoutItem>
+
+
+
+
+    <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+        <div class="page-footer page-section">
+            <h2>Beer Explorer</h2>
+        </div>
+    </lightning:layoutItem>
+</lightning:layout>
 
 </aura:component>
