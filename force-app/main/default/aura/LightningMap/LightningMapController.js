@@ -4,7 +4,7 @@
         component.set('v.mapMarkers', [
             {
                 location: {
-                    Street: 'Badrakaliamman real estate',
+                    Street: 'Badrakaliamman Real-estate',
                     City: 'Podanur',
                     PostalCode: '641023',
                     State: 'TamilNadu',
