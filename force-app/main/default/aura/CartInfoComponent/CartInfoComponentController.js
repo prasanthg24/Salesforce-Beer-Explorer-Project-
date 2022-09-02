@@ -27,7 +27,7 @@
         action.setCallback(this, function(response){
             var state = response.getState();
                  //debugger;
-              alert(response.getReturnValue())
+             // alert(response.getReturnValue())
               console.log("cart ID - ", response.getReturnValue())
             if(state === 'SUCCESS' || state === 'DRAFT'){
                 
@@ -38,11 +38,11 @@
                         "componentName": "c__CartDetail"    
                     },    
                     "state": {
-                        "cartId": response.getReturnValue()
+                        cartId__c: response.getReturnValue()
                     }
                 };
                 pageReference.navigate(pageReferenceNav, true);
-                 debugger;
+              
             }else if(state === 'INCOMPLETE'){
                 console.log('User is offline System does not support offline');
             }else if(state ==='ERROR'){

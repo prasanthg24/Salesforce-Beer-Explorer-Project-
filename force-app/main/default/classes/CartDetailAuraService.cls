@@ -19,19 +19,26 @@ public class CartDetailAuraService
         }
         
         @AuraEnabled
-        public static String createCartItems(List<String> beerList, String cartId){
-            system.debug('createCartItems called');
-            System.debug('#### beerList '+ beerList);
+        public static String createCartItems(List<String> beerList, String cartId)
+        {
+          
+            System.debug('beerList '+ beerList);
+            System.debug('cartId '+ cartId);
+            
             List<cart_Item__c> cartItemList = new List<cart_Item__c>();
+            
             List<cart_Item__c> cartItemToUpdate = new List<cart_Item__c>();
+            
             Map<Id, cart_Item__c> beerQntyMap = getCartItems(cartId);
+            
             For(String beer : beerList){
-                if(beerQntyMap != null && beerQntyMap.containsKey(beer)){
+                if(beerQntyMap != null && beerQntyMap.containsKey(beer))
+                {
                     cart_Item__c it = beerQntyMap.get(beer);
                     cart_Item__c item = new cart_Item__c(
                         Item_Quantity__c = it.Item_Quantity__c+1,
-                        Id = it.Id
-                    );
+                        Id = it.Id );
+
                     cartItemToUpdate.add(item);
                 }else{
                     Integer Qty = 1;
@@ -79,15 +86,23 @@ public class CartDetailAuraService
         }
         
         @AuraEnabled
-        public static Map<Id, cart_Item__c> getCartItems(String CartId){
+        public static Map<Id, cart_Item__c> getCartItems(String CartId)
+        {
+             System.debug('getCartItems called cartId -  '+ CartId);
+            
             List<Cart_Item__c> existingItemList = [Select Id, Name, Item_Quantity__c,Total_Amount1__c, Beer__c, Beer__r.Name From cart_Item__c 
                                                    Where Cart__c =: cartId];
+            
             Map<Id, Cart_Item__c> beerQntyMap = new Map<Id, cart_Item__c>();
-            For(Cart_Item__c item : existingItemList){
-                if(!beerQntyMap.containsKey(item.Beer__c)){
+            
+            For(Cart_Item__c item : existingItemList)
+            {
+                if(!beerQntyMap.containsKey(item.Beer__c))
+                {
                     beerQntyMap.put(item.Beer__c, item);
                 }
             }
+              System.debug('Cart_Item__c  -  '+ existingItemList);
             return beerQntyMap;
         }
         

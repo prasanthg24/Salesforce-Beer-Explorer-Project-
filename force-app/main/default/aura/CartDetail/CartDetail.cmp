@@ -1,46 +1,65 @@
-<aura:component implements="lightning:isUrlAddressable" >
-  
-<div class="slds-page-header " style =" background-color: #2a39ff;
-                                    font-size: xxx-large;
-                                    text-align: center;
-                                    font-family: cursive;
-                                    color: rgb(248, 248, 248);"> 
-    <h1> Cart Detail Component</h1>
-</div>
-
-<aura:attribute name="CartId" type="String" />
-
-<lightning:layout multipleRows="true">
-    <lightning:layoutItem padding="around-small" size="12">
-        <div class="page-header">
-            
-                 <h1> Cart Detail Component</h1>
-        </div>
-    </lightning:layoutItem>
-
-    <lightning:layoutItem padding="around-small" size="12">
-        <lightning:layout>
-         
-            <lightning:layoutItem padding="around-small" size="3">
-               
-                <div class="page-section page-right">
-                    <h2>Frequently Purchased..</h2>
-                    <p>
+<aura:component implements="lightning:isUrlAddressable" controller="CartDetailAuraService" >
+    
+    <aura:attribute name="cartId" type="String" />
+    <aura:attribute name="cartItemList" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div  class="slds-p-around_medium"> 
+        <div class="c-container">
+            <lightning:layout multipleRows="true">
+                <!--Header-->
+                <lightning:layoutItem padding="around-small" size="12">
+                    <div class="page-section page-header" 
+                         style =" background-color: #03045e;
+                                 text-align: center;
+                                 
+                                 color:white;">
+                        <h1> Cart Detail Page</h1>
+                    </div>
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="12">
+                    <lightning:layout>
                         
-                    </p>
-                </div>
-            </lightning:layoutItem>
-        </lightning:layout>
-    </lightning:layoutItem>
-
-
-
-
-    <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
-        <div class="page-footer page-section">
-            <h2>Beer Explorer</h2>
-        </div>
-    </lightning:layoutItem>
-</lightning:layout>
-
+                        <lightning:layoutItem padding="around-small" size="8">
+                            <div class="page-section page-main">
+                                       <!--Main-->
+                                <aura:if isTrue="{!v.cartItemList.length > 0}">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-4"></div>
+                                        <div class="slds-col slds-size_1-of-4"><b>Price</b></div>
+                                        <div class="slds-col slds-size_1-of-4"><b>Quantity</b></div>
+                                        <div class="slds-col slds-size_1-of-4"></div>
+                                    </div>
+                                    <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
+                                        <!-- <c:CartItem cartItem="{!item}" index="{!index}"/>-->
+                                        {!item.Id}&nbsp;&emsp;
+                                        {!item.Beer__r.Name}&nbsp;&nbsp;
+                                        {!item.Item_Quantity__c}&nbsp;&nbsp;
+                                        {!item.Total_Amount1__c}<br/>
+                                    </aura:iteration>
+                                </aura:if>
+                            </div>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem padding="around-small" size="4">
+                            <div class="page-section page-right">
+                                <h2>Right Sidebar</h2>
+                                
+                                
+                                
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+                    <div class="page-footer page-section" style =" background-color: #d62828;
+                                                                  text-align: center;
+                                                                  color:white;"           >
+                        
+                        <h2>Footer</h2>
+                    </div>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div></div>
 </aura:component>

@@ -1,2 +1,22 @@
 .THIS {
+      background: #d4a373;
+}
+.THIS.c-container {
+    border: 1px solid #90e0ef;
+    margin: 10px 0 20px 0;
+}
+.THIS .page-section {
+    border: solid 1px #ccc;
+    padding: 1rem;
+}
+.THIS .page-header,
+.THIS .page-footer {
+    height: 50px;
+}
+.THIS .page-main {
+    background: #d0f4de;
+}
+.THIS .page-left,
+.THIS .page-right {
+    background: #f0efef;
 }
