@@ -17,17 +17,18 @@
     ,
     goToCart : function(component, event, helper) 
     {
-        /*
+        
         var action = component.get('c.getCartId');
 
         action.setParams({
-            'beerList' : component.get('v.recordList')
+            'beerList' : component.get('v.beerNameList')
         });
         
         action.setCallback(this, function(response){
             var state = response.getState();
                  //debugger;
-                 alert(state)
+              alert(response.getReturnValue())
+              console.log("cart ID - ", response.getReturnValue())
             if(state === 'SUCCESS' || state === 'DRAFT'){
                 
                 var pageReference = component.find("navigation");
@@ -56,7 +57,7 @@
                 
             }
         });
-        $A.enqueueAction(action);*/
+        $A.enqueueAction(action);
 
 
     }

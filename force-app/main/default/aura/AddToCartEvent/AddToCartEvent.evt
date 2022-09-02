@@ -1,0 +1,11 @@
+<aura:event type="APPLICATION">
+   
+    
+    
+    <aura:attribute name="beerId" type="String" />
+    
+    
+ 
+
+
+</aura:event>
