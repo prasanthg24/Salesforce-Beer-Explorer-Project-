@@ -32,8 +32,8 @@
                                         <div class="slds-col slds-size_1-of-4"></div>
                                     </div>
                                     <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
-                                        <!-- <c:CartItem cartItem="{!item}" index="{!index}"/>-->
-                                        {!item.Id}&nbsp;&emsp;
+                                       <c:CartItem cartItem="{!item}" index="{!index}"/>
+                                               {!item.Id}&nbsp;&emsp;
                                         {!item.Beer__r.Name}&nbsp;&nbsp;
                                         {!item.Item_Quantity__c}&nbsp;&nbsp;
                                         {!item.Total_Amount1__c}<br/>
