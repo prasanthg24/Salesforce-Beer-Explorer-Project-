@@ -10,7 +10,7 @@
                 <!--Header-->
                 <lightning:layoutItem padding="around-small" size="12">
                     <div class="page-section page-header" 
-                         style =" background-color: #03045e;
+                         style =" background-color: #0F3D3E;
                                  text-align: center;
                                  
                                  color:white;">
@@ -33,10 +33,7 @@
                                     </div>
                                     <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
                                        <c:CartItem cartItem="{!item}" index="{!index}"/>
-                                               {!item.Id}&nbsp;&emsp;
-                                        {!item.Beer__r.Name}&nbsp;&nbsp;
-                                        {!item.Item_Quantity__c}&nbsp;&nbsp;
-                                        {!item.Total_Amount1__c}<br/>
+                                              
                                     </aura:iteration>
                                 </aura:if>
                             </div>
@@ -53,7 +50,7 @@
                     </lightning:layout>
                 </lightning:layoutItem>
                 <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
-                    <div class="page-footer page-section" style =" background-color: #d62828;
+                    <div class="page-footer page-section" style =" background-color: #76549A;
                                                                   text-align: center;
                                                                   color:white;"           >
                         

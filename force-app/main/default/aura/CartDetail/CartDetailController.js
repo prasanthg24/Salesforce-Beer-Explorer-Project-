@@ -14,7 +14,7 @@
             action.setCallback(this, function(response)
                                {
                                    var stateResponse = response.getState();
-                                   
+                                   $A.get('e.force:refreshView').fire(); 
                                    if(stateResponse === 'SUCCESS' || stateResponse === 'DRAFT')
                                    {
                                        var ResultData =response.getReturnValue();
@@ -29,6 +29,7 @@
                                        
                                        component.set('v.cartItemList', items);
                                        console.log( items);
+                                      
                                        
                                    }
                                    else if(stateResponse === 'INCOMPLETE')

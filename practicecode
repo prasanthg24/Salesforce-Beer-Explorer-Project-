@@ -1,0 +1,6 @@
+$A.get('e.force:refreshView').fire(); 
+    }
+    {!item.Id}&nbsp;&emsp;
+    {!item.Beer__r.Name}&nbsp;&nbsp;
+    {!item.Item_Quantity__c}&nbsp;&nbsp;
+    {!item.Total_Amount1__c}<br/>

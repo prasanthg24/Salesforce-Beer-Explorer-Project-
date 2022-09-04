@@ -8,10 +8,12 @@
             if(existingRecords){
                 existingRecords.push(beerRecord);
                 component.set('v.recordList', existingRecords);
+                  console.log("existingRecords - ",existingRecords)   
             } else {
                 existingRecords = [];
                 existingRecords.push(beerRecord);
                 component.set('v.recordList', existingRecords);
+                  console.log("existingRecords - ",existingRecords)   
             }
             
             var toastEvent = $A.get("e.force:showToast");
