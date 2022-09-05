@@ -1,6 +1,7 @@
 <aura:component  controller="CartDetailAuraService" >
 	<aura:attribute name="cartItem" type="Object" />
     <aura:attribute name="index" type="Integer"/>
+
     <div>
         <div class="slds-grid slds-wrap">
              <div class="slds-col slds-size_1-of-4">

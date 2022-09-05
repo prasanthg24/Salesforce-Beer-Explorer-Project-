@@ -1,6 +1,8 @@
 ({
+    
     doInit : function(component, event, helper) 
     {
+       
         var pageReference = component.get('v.pageReference');
         
         var state = pageReference.state;
@@ -14,9 +16,10 @@
             action.setCallback(this, function(response)
                                {
                                    var stateResponse = response.getState();
-                                   $A.get('e.force:refreshView').fire(); 
+                                    
                                    if(stateResponse === 'SUCCESS' || stateResponse === 'DRAFT')
                                    {
+                                    $A.get('e.force:refreshView').fire(); 
                                        var ResultData =response.getReturnValue();
                                        console.log("ResultData value - ", ResultData)
                                        console.log("Return length - ", ResultData.length)
@@ -29,7 +32,7 @@
                                        
                                        component.set('v.cartItemList', items);
                                        console.log( items);
-                                      
+                                    
                                        
                                    }
                                    else if(stateResponse === 'INCOMPLETE')

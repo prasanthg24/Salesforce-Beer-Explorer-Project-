@@ -32,15 +32,19 @@
             if(state === 'SUCCESS' || state === 'DRAFT'){
                 
                 var pageReference = component.find("navigation");
-                var pageReferenceNav = {    
+                var pageReferenceNav = 
+                {    
                     "type": "standard__component",
-                    "attributes": {
+                    "attributes":
+                    {
                         "componentName": "c__CartDetail"    
                     },    
-                    "state": {
+                    "state": 
+                    {
                         cartId__c: response.getReturnValue()
                     }
                 };
+               
                 pageReference.navigate(pageReferenceNav, true);
               
             }else if(state === 'INCOMPLETE'){
