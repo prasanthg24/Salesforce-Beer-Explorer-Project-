@@ -16,8 +16,5 @@
             }
         });
         $A.enqueueAction(action);
-	},
-    doInit:function(component, event, helper) {
-       
-    }
+	}
 })
