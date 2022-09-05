@@ -7,7 +7,8 @@
     <aura:attribute name="beerId" type="String"/>
     <aura:attribute name="beervalue" type="string"/>
     
-    <div  class="slds-grid slds-wrap" style="background-color: #0e66e1; ">
+    <div  class="slds-grid slds-wrap" style="
+    background-image: url('https://www.designyourway.net/diverse/darkpat/wallpaper_800x600_1536.jpg');    ">
         <aura:iteration items="{!v.recordList}" var="item" indexVar = "index">
             <div class="slds-col slds-size_1-of-4 slds-p-around_small">
                 <lightning:card  title="{!item.Name}" footer="{!item.Brewery_Name__c}"

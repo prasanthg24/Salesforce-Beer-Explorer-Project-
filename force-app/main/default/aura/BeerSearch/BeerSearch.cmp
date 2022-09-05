@@ -3,7 +3,7 @@
     
     <div class="slds-p-around_medium"  style="
                                           
-                                              background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20200731/pngtree-blue-carbon-background-with-sport-style-and-golden-light-image_371487.jpg');   
+                                              background-image: url('https://images.template.net/wp-content/uploads/2014/10/pattern-background1.jpg');   
                                               ">
         <lightning:input
                          name="inline-search-input"
