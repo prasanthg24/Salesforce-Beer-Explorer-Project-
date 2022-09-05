@@ -2,8 +2,8 @@
     <aura:registerEvent name="BeerEvent" type="c:BeerSearchEvent" />
     
     <div class="slds-p-around_medium"  style="
-                                              background-color: #0fc947;  
-                                              
+                                          
+                                              background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20200731/pngtree-blue-carbon-background-with-sport-style-and-golden-light-image_371487.jpg');   
                                               ">
         <lightning:input
                          name="inline-search-input"
