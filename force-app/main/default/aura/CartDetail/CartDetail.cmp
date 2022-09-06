@@ -3,7 +3,7 @@
     <aura:attribute name="cartId" type="String" />
     <aura:attribute name="cartItemList" type="Object" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-   
+    <lightning:navigation aura:id="navigation" />
 
 
     <div  class="slds-p-around_medium"> 
