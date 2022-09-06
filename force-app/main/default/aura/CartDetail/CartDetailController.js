@@ -1,10 +1,22 @@
 ({
     homePage : function(component, event, helper){
+
+        /*var pageReference = component.find("navigation");
+        var pageReferenceNav = 
+        {    
+            "type": "standard__component",
+            "attributes":
+            {
+                "componentName": "c__BeerExplorer"    
+            }
+        };
+       
+        pageReference.navigate(pageReferenceNav, true);*/
         var pageReference = component.find("navigation");
         var pageReferenceNav = {    
             "type": "standard__navItemPage",
             "attributes": {
-                "apiName": "BeerExplorerComponent"    
+                "apiName": "BeerExplorer"    
             }
         };
         pageReference.navigate(pageReferenceNav, true);
@@ -29,12 +41,11 @@
                                     
                                    if(stateResponse === 'SUCCESS' || stateResponse === 'DRAFT')
                                    {
-                                    $A.get('e.force:refreshView').fire(); 
+                                    
                                        var ResultData =response.getReturnValue();
                                        console.log("ResultData value - ", ResultData)
-                                       console.log("Return length - ", ResultData.length)
-                                       
-                                       var items = [];
+                                    /*
+                                        var items = [];
                                        for(var key in ResultData)
                                        {
                                            items.push(ResultData[key]);
@@ -42,6 +53,23 @@
                                        
                                        component.set('v.cartItemList', items);
                                        console.log( items);
+                                    */
+                                  
+                                       var items = [];
+                        var subTotal;
+                        for(var key in ResultData){
+
+                            items.push(ResultData[key]);
+
+                            if(subTotal)
+                                subTotal = subTotal + ResultData[key].Total_Amount1__c
+                            else
+                                subTotal = ResultData[key].Total_Amount1__c
+                        }
+                        component.set('v.subTotal', subTotal);
+                                       
+                                       component.set('v.cartItemList', items);
+                                       console.log( "items" , items);
                                     
                                        
                                    }
@@ -68,5 +96,11 @@
             $A.enqueueAction(action);
         } 
         
+    },
+    applyCoupon :  function(component, event, helper) 
+    {
+        component.set('v.isCouponAplied', true);
+    
     }
+
 })

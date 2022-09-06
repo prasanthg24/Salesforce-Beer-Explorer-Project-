@@ -17,7 +17,7 @@
     ,
     goToCart : function(component, event, helper) 
     {
-        
+        $A.get('e.force:refreshView').fire(); 
         var action = component.get('c.getCartId');
 
         action.setParams({
@@ -30,7 +30,7 @@
              // alert(response.getReturnValue())
               console.log("cart ID - ", response.getReturnValue())
             if(state === 'SUCCESS' || state === 'DRAFT'){
-                
+               
                 var pageReference = component.find("navigation");
                 var pageReferenceNav = 
                 {    

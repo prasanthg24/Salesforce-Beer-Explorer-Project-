@@ -2,8 +2,20 @@
     
     <aura:attribute name="cartId" type="String" />
     <aura:attribute name="cartItemList" type="Object" />
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:attribute name="subTotal" type="Integer" />
+    <aura:attribute name="discountAmount" type="Integer" />
+    <aura:attribute name="errorDiscount" type="String" />
+    <aura:attribute name="isCouponAplied" type="Boolean" />
+    <aura:attribute name="isCouponSuccess" type="Boolean" />
+    <aura:attribute name="isCheckout" type="Boolean" />
+    <aura:attribute name="isNewAddress" type="Boolean" />
+   
     <lightning:navigation aura:id="navigation" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+
+
 
 
     <div  class="slds-p-around_medium"> 
@@ -36,6 +48,7 @@
                                     <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
                                        		<c:CartItem cartItem="{!item}" index="{!index}"/>
                                     </aura:iteration>
+                                    
                                           <!--Buttons -->
                                     <lightning:buttonGroup>
                                         <lightning:button label="Continue Shopping"
@@ -62,11 +75,61 @@
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
                                 <h2>Right Sidebar</h2>
-                                            
-                <img src="https://acegif.com/wp-content/uploads/gif/beer-19.gif"  
-                class="slds-align_absolute-center" /><br/>
-                                            
-                                
+                            </div>
+
+
+                            <aura:if isTrue="{!v.cartItemList.length > 0}">
+                                <div class="page-section page-right">
+                                    <b>Subtotal ({!v.cartItemList.length} item):</b> &nbsp;
+                                    <lightning:formattedNumber label="Price" value="{!v.subTotal}" 
+                                          currencyCode="USD"/>
+                                    <br/>
+                                    <aura:if isTrue="{!!v.isCouponSuccess}">
+                                        Have a Coupon?
+                                        <a href="JavaScript:void(0);" onclick="{!c.applyCoupon}">
+                                            Apply Here
+                                        </a>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.isCouponAplied}">
+                                        <aura:if isTrue="{!!v.isCouponSuccess}">
+                                            <p>
+                                                <lightning:input name="input3" aura:id="CouponNo" 
+                                                                 label="15 Digit Valid Coupon No" 
+                                                                 placeholder="type here..."/>
+                                                <lightning:button label="Apply" variant="brand"
+                                                                  onclick="{!c.doApplyCoupon}"/>
+                                            </p>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.errorDiscount != null}">
+                                            <p style="color:red;">
+                                            	{!v.errorDiscount}
+                                            </p>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.discountAmount != null}">
+                                            <p style="color:green;">
+                                            	Discount of <b>${!v.discountAmount}</b> has been applied to 
+                                            the total of your Cart.
+                                            </p>
+                                        </aura:if>
+                                    </aura:if>
+                                    <br/>
+                                    <br/>
+                                    <aura:if isTrue="{!!v.isCheckout}" >
+                                        <lightning:buttonGroup>
+                                            <lightning:button label="Continue"
+                                                              onclick="{!c.homePage}"/>
+                                            <lightning:button label="Proceed Checkout"
+                                                              variant="brand"
+                                                              onclick="{!c.doCheckout}"/>
+                                        </lightning:buttonGroup>
+                                    </aura:if>
+                                </div>
+                            </aura:if>
+                            <div class="page-section page-right">
+                                <h2>Frequently Purchased..</h2>
+                                <p>
+                                	
+                                </p>
                             </div>
                         </lightning:layoutItem>
                     </lightning:layout>
