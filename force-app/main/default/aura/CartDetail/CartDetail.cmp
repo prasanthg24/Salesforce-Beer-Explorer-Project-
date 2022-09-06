@@ -62,8 +62,10 @@
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
                                 <h2>Right Sidebar</h2>
-                                
-                                
+                                            
+                <img src="https://acegif.com/wp-content/uploads/gif/beer-19.gif"  
+                class="slds-align_absolute-center" /><br/>
+                                            
                                 
                             </div>
                         </lightning:layoutItem>
