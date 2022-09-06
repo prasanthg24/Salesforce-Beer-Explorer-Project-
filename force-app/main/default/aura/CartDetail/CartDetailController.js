@@ -19,7 +19,7 @@
                                     
                                    if(stateResponse === 'SUCCESS' || stateResponse === 'DRAFT')
                                    {
-                                 
+                                    $A.get('e.force:refreshView').fire(); 
                                        var ResultData =response.getReturnValue();
                                        console.log("ResultData value - ", ResultData)
                                        console.log("Return length - ", ResultData.length)
