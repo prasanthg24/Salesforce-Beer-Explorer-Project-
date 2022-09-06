@@ -17,7 +17,7 @@
     ,
     goToCart : function(component, event, helper) 
     {
-        $A.get('e.force:refreshView').fire(); 
+      
         var action = component.get('c.getCartId');
 
         action.setParams({

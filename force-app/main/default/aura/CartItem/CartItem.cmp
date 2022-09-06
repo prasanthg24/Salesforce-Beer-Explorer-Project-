@@ -27,7 +27,7 @@
                     <lightning:icon title="{!v.cartItem.Id}"
                                     iconName="action:delete" 
                                     alternativeText="delete" 
-                                    size="small" />
+                                    size="xx-small" />
                 </a>
             </div>
         </div>

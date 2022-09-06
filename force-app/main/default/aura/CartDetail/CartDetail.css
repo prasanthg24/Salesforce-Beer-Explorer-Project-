@@ -1,12 +1,12 @@
 .THIS {
-    background:#FCF8E8;
+    background:#70e4e2;
 }
 .THIS.c-container {
-    border: 1px solid #94B49F;
+    border: 1px solid #00275d;
     margin: 10px 0 20px 0;
 }
 .THIS .page-section {
-    border: solid 1px #DF7861;
+    border: solid 1px #1a8be8;
     padding: 1rem;
 }
 .THIS .page-header,
@@ -14,7 +14,7 @@
     height: 50px;
 }
 .THIS .page-main {
-    background: #E7F6F2;
+    background: #e7f5f6;
 }
 .THIS .page-left,
 .THIS .page-right {

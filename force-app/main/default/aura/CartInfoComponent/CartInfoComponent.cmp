@@ -13,6 +13,7 @@
         <lightning:layOutitem>
             <a href="JavaScript:void(0);" onclick="{!c.goToCart}">
                 <lightning:icon iconName="standard:webcart" size="large"/>
+                
             </a>
             <span style="font-size:2.1rem;"> {!v.recordList.length}</span>
         </lightning:layOutitem>

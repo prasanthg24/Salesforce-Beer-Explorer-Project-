@@ -1,4 +1,5 @@
 ({
+
     homePage : function(component, event, helper)
     {
         var pageReference = component.find("navigation");
@@ -84,6 +85,43 @@
     {
         component.set('v.isCouponAplied', true);
     
+    },
+    doApplyCoupon : function(component, event, helper) 
+    {
+        var CouponNo = component.find('CouponNo').get('v.value');
+        var cartId = component.get('v.cartId');
+       // alert(CouponNo);
+      //  alert(cartId);
+        if(CouponNo){
+            var action = component.get('c.checkCoupon');
+            action.setParams({
+                Name : CouponNo,
+                CartId : cartId
+            });
+            action.setCallback(this, function(response){
+                var state = response.getState();
+               // alert(state);
+                if(state === 'SUCCESS' || state ==='DRAFT'){
+                    var resultData = response.getReturnValue();
+                    if(resultData){
+                        component.set('v.discountAmount', resultData);
+
+                        component.set('v.errorDiscount',null);
+                        component.set('v.isCouponSuccess', true);
+                        var discount = resultData;
+                        var subtotal = component.get('v.subTotal') - discount;
+                        component.set('v.subTotal',subtotal);
+                    }else{
+                        component.set('v.errorDiscount','Coupon is not Valid OR Expired.');
+                        component.set('v.discountAmount',null);
+                         component.set('v.isCouponSuccess', false);
+                    }
+                }
+            });
+            $A.enqueueAction(action);
+        }else{
+            alert('Please Enter your Coupon No');
+        }
     }
 
 })
