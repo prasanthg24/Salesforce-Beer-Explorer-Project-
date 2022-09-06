@@ -1,4 +1,14 @@
 ({
+    homePage : function(component, event, helper){
+        var pageReference = component.find("navigation");
+        var pageReferenceNav = {    
+            "type": "standard__navItemPage",
+            "attributes": {
+                "apiName": "BeerExplorerComponent"    
+            }
+        };
+        pageReference.navigate(pageReferenceNav, true);
+    },
     
     doInit : function(component, event, helper) 
     {
