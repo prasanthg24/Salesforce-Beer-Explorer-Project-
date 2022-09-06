@@ -3,9 +3,7 @@
     <aura:attribute name="cartId" type="String" />
     <aura:attribute name="cartItemList" type="Object" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    
-    <lightning:workspaceAPI aura:id="workspace" />
-    <!--<aura:handler event="lightning:tabRefreshed" action="{! c.onTabRefreshed }"/>-->
+   
 
 
     <div  class="slds-p-around_medium"> 
@@ -14,20 +12,19 @@
                 <!--Header-->
                 <lightning:layoutItem padding="around-small" size="12">
                     <div class="page-section page-header" 
-                         style =" background-color: #0F3D3E;
-                                 text-align: center;
-                                 
-                                 color:white;">
+                            style =" background-color: #0F3D3E;
+                                        text-align: center;
+                                        color:white;">
                         <h1> Cart Detail Page</h1>
                     </div>
-                    
                 </lightning:layoutItem>
+                
                 <lightning:layoutItem padding="around-small" size="12">
                     <lightning:layout>
-                        
                         <lightning:layoutItem padding="around-small" size="8">
                             <div class="page-section page-main">
                                        <!--Main-->
+                                
                                 <aura:if isTrue="{!v.cartItemList.length > 0}">
                                     <div class="slds-grid slds-wrap">
                                         <div class="slds-col slds-size_1-of-4"><b>Beer Name</b></div>
@@ -35,11 +32,30 @@
                                         <div class="slds-col slds-size_1-of-4"><b>Quantity</b></div>
                                         <div class="slds-col slds-size_1-of-4"></div>
                                     </div>
+                                      <!--Calling Cart item Component-->
                                     <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
-                                       <c:CartItem cartItem="{!item}" index="{!index}"/>
-                                              
+                                       		<c:CartItem cartItem="{!item}" index="{!index}"/>
                                     </aura:iteration>
+                                          <!--Buttons -->
+                                    <lightning:buttonGroup>
+                                        <lightning:button label="Continue Shopping"
+                                                          onclick="{!c.homePage}"/>
+                                        <lightning:button label="Proceed Checkout"
+                                                          variant="brand"
+                                                          onclick="{!c.doCheckout}"/>
+                                    </lightning:buttonGroup>
+                                    
+
+                                    <aura:set attribute="else">
+                                        <img src="https://media1.giphy.com/media/jtECu4KjK3cqiAUMyR/giphy.gif"  class="slds-align_absolute-center" /><br/>
+                                        <a href="JavaScript:void(0);" 
+                                           class="slds-align_absolute-center" onclick='{!c.homePage}'>
+                                            Click Here to add Items
+                                        </a>
+                                    </aura:set>                                    
                                 </aura:if>
+                                
+                                
                             </div>
                         </lightning:layoutItem>
                         
@@ -62,5 +78,6 @@
                     </div>
                 </lightning:layoutItem>
             </lightning:layout>
-        </div></div>
+        </div>
+    </div>
 </aura:component>
