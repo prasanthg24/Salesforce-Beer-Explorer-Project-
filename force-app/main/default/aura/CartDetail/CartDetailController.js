@@ -1,21 +1,12 @@
 ({
-    homePage : function(component, event, helper){
-
-        /*var pageReference = component.find("navigation");
+    homePage : function(component, event, helper)
+    {
+        var pageReference = component.find("navigation");
         var pageReferenceNav = 
         {    
-            "type": "standard__component",
-            "attributes":
-            {
-                "componentName": "c__BeerExplorer"    
-            }
-        };
-       
-        pageReference.navigate(pageReferenceNav, true);*/
-        var pageReference = component.find("navigation");
-        var pageReferenceNav = {    
             "type": "standard__navItemPage",
-            "attributes": {
+            "attributes": 
+            {
                 "apiName": "BeerExplorer"    
             }
         };
@@ -44,18 +35,9 @@
                                     
                                        var ResultData =response.getReturnValue();
                                        console.log("ResultData value - ", ResultData)
-                                    /*
-                                        var items = [];
-                                       for(var key in ResultData)
-                                       {
-                                           items.push(ResultData[key]);
-                                       }
-                                       
-                                       component.set('v.cartItemList', items);
-                                       console.log( items);
-                                    */
+                                    
                                   
-                                       var items = [];
+                        var items = [];
                         var subTotal;
                         for(var key in ResultData){
 
@@ -66,10 +48,11 @@
                             else
                                 subTotal = ResultData[key].Total_Amount1__c
                         }
-                        component.set('v.subTotal', subTotal);
-                                       
-                                       component.set('v.cartItemList', items);
-                                       console.log( "items" , items);
+                         component.set('v.subTotal', subTotal);
+
+
+                         component.set('v.cartItemList', items);
+                         console.log( "items" , items);
                                     
                                        
                                    }

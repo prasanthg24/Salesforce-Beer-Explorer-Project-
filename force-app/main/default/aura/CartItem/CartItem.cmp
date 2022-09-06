@@ -13,7 +13,7 @@
         <div class="slds-col slds-size_1-of-4">
         <lightning:formattedNumber label="Price" 
                                         value="{!v.cartItem.Total_Amount1__c}" 
-                                        style="currency" 
+                                        style="currency"
                                         currencyCode = "USD"/>
             </div>
       <br/>
