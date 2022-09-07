@@ -1,5 +1,10 @@
 ({
+    doCheckout : function(component, event, helper)
+    {
 
+        component.set('v.isCheckout', true);
+
+    },
     homePage : function(component, event, helper)
     {
         var pageReference = component.find("navigation");
@@ -16,7 +21,26 @@
     
     doInit : function(component, event, helper) 
     {
-       
+         
+      /*  component.find('recordCreator').getNewRecord(
+            'Address_Book__c',
+            null,
+            false,
+            $A.getCallback(function(){
+                var record = component.get('v.record');
+                var error = component.get('v.recordError');
+                if(error || (record === null)){
+                    console.log(' Error while creating the template ',error);
+                }else{
+                    console.log(' Successfuly Created');
+                    //alert('Templated Initiated');
+                }
+            })
+        );*/
+
+
+
+
         var pageReference = component.get('v.pageReference');
         
         var state = pageReference.state;
