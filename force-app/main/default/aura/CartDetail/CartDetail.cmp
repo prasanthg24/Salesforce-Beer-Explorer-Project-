@@ -8,7 +8,22 @@
     <aura:attribute name="errorDiscount" type="String" />
     <aura:attribute name="isCouponAplied" type="Boolean" />
     <aura:attribute name="isCouponSuccess" type="Boolean" />
-    <aura:attribute name="isCheckout" type="Boolean" />
+
+<aura:attribute name="addressBook" type="Address_Book__c"
+                default="{ sobjectType:'Address_Book__c',  
+                Name : '',
+                City__c:'',
+                Postal_Code__c:'',
+                State__c : '',
+                Country__c : ''
+                }"/> 
+
+
+<aura:attribute name="record" type="Object" />
+<aura:attribute name="recordError" type="String" />
+<aura:attribute name="isCheckout" type="Boolean" />
+
+
     <aura:attribute name="isNewAddress" type="Boolean" />
    
     <lightning:navigation aura:id="navigation" />
@@ -81,11 +96,9 @@
                                     </aura:set>                                    
                                 </aura:if>
                                 
-                         
                             </div>
                        
                         </lightning:layoutItem>
-                        
  </aura:if>
 
 <!--Address Creation-->
