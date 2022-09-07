@@ -91,7 +91,7 @@
 <!--Address Creation-->
 
 <aura:if isTrue="{!v.isCheckout}" >
-                            <lightning:layoutItem padding="around-small" size="9">
+                            <lightning:layoutItem padding="around-small" size="8">
                                 <div class="page-section page-main">
                                     <h1>Select Billing/Shipping Address</h1>
                                     <aura:if isTrue="{!and(v.addressList.length > 0, !v.isNewAddress)}">
