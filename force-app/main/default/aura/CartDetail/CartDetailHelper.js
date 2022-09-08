@@ -12,7 +12,7 @@
         
         action.setCallback(this, function(response){
             var state = response.getState();
-            
+           // alert(state);
             if(state === 'SUCCESS' || state === 'DRAFT'){
                 var responseData = response.getReturnValue();
                 var resultData = JSON.parse(responseData);

@@ -170,22 +170,6 @@
                     });
                     showToast.fire();
 
-                    var addList = [];
-                    var addrList = component.get('v.addressList');
-                    if(addrList)
-                    {
-                        addrList.push(component.get('v.addressBook'));
-                        component.set('v.addressList' , addrList);
-                    }
-                    else
-                    {
-                       addList.push(component.get('v.addressBook'));
-                       component.set('v.addressList' , addList); 
-                    }
-
-                    console.log( "addList = ",addList)
-                    console.log(" addrList = ",addrList )
-                    console.log( " addressList ---",component.get('v.addressList'))
                  //   component.set('v.isNewAddress', false);
                 } else if(saveResult.state === 'INCOMPLETE'){
                     
@@ -196,6 +180,19 @@
                 }
             });
         }
+    },
+
+    getAddress :  function(component, event, helper) 
+    {
+   /* var istrue = component.get('v.isCheckout');
+if(istrue)
+
+*/
+helper.fetchAddress(component, event, helper);
+
+
+
+       
     }
 
 })

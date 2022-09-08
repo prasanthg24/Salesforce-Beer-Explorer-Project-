@@ -110,14 +110,14 @@ public class CartDetailAuraService
         public static void deleteItem(String CartItemId){
             Database.delete(CartItemId);
         }
-        @AuraEnabled
+        @AuraEnabled(cacheable=true)
         public static string fetchAddressBook ()
         {
         
-            List<Address_Book__c> addressBook = [SELECT Id, Name, City__c, State__c, Postal_Code__c, Country__c, Street__c, User__c
+            List<Address_Book__c> add = [SELECT Id, Name, City__c, State__c, Postal_Code__c, Country__c, Street__c, User__c
                                                  FROM Address_Book__c   
                                                  WHERE User__c=:userinfo.getUserId() ];
-          return JSON.serialize( addressBook);
+          return JSON.serialize(add);
         }
       
     

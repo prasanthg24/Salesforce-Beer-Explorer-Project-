@@ -25,7 +25,9 @@
     <aura:attribute name="addressList" type="Object" />
     <aura:attribute name="isNewAddress" type="Boolean" />
     <lightning:navigation aura:id="navigation" />
-    <h2> Address List = {!v.addressList} </h2>
+    <aura:handler name="change" value="{!v.isCheckout}" action="{!c.getAddress}" />
+    <h2> Address List = {!v.addressList.length} </h2>
+    {
       <!-- LDS for Create Record -->
       <force:recordData aura:id="recordCreator"
       layoutType="FULL"
@@ -114,21 +116,21 @@
                                     <h1>Select Billing/Shipping Address</h1>
                                    
                                    <!-- <aura:if isTrue="{!and(v.addressList.length > 0, !v.isNewAddress)}">-->
-                              <aura:if isTrue="{v.addressList.length > 0}">
+                              <aura:if isTrue="{!v.addressList.length > 0}">
                                         <div class="slds-grid slds-wrap">
                                             <aura:iteration items="{!v.addressList}" var="item" 
                                                             indexVar="index">
                                                 <div class="slds-col slds-size_1-of-2">
                                                     <ui:inputRadio aura:id="r0" name="others" label="" 
                                                                    change="{!c.onSelect}" text="{!index}"/>
-                                                    <lightning:formattedAddress
-                                                                                street="{!item.Street__c}"
-                                                                                city="{!item.City__c}"
-                                                                                country="{!item.Country__c}"
-                                                                                province="{!item.State__c}"
-                                                                                postalCode="{!item.Postal_Code__c}"
-                                                                                disabled="true"
-                                                                                />
+                                                <lightning:formattedAddress
+                                            street="{!item.Street__c}"
+                                        city="{!item.City__c}"
+                                            province="{!item.State__c}"
+                                            country="{!item.Country__c}"
+                                    postalCode="{!item.Postal_Code__c}"
+                                    disabled="true"
+                                    />
                                                 </div>
                                             </aura:iteration>
                                         </div>
