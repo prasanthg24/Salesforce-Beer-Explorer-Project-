@@ -22,21 +22,26 @@
     doInit : function(component, event, helper) 
     {
          
-      /*  component.find('recordCreator').getNewRecord(
+   component.find('recordCreator').getNewRecord
+   (
             'Address_Book__c',
             null,
             false,
-            $A.getCallback(function(){
+            $A.getCallback(function()
+            {
                 var record = component.get('v.record');
                 var error = component.get('v.recordError');
-                if(error || (record === null)){
+                if(error || (record === null))
+                {
                     console.log(' Error while creating the template ',error);
-                }else{
-                    console.log(' Successfuly Created');
-                    //alert('Templated Initiated');
+                }
+                else
+                {
+                    console.log(' Templated Successfuly Created');
+                   // alert('Templated Initiated');
                 }
             })
-        );*/
+        );
 
 
 
@@ -145,6 +150,51 @@
             $A.enqueueAction(action);
         }else{
             alert('Please Enter your Coupon No');
+        }
+    },
+    doSaveAddress :  function(component, event, helper) 
+    {
+
+        var isValidAddress = helper.validate(component, event, helper);
+        //alert(isValidAddress);
+        if(isValidAddress){
+            var userId = $A.get("$SObjectType.CurrentUser.Id");
+            component.set('v.addressBook.User__c',userId);
+            component.find('recordCreator').saveRecord(function(saveResult){
+                if(saveResult.state === 'SUCCESS' || saveResult.state === 'DRAFT'){
+                    var showToast = $A.get('e.force:showToast');
+                    showToast.setParams({
+                        "title" : "Record Saved",
+                        "type" : "Success",
+                        "message" : "Addressbook has been Save  "+saveResult.recordId
+                    });
+                    showToast.fire();
+
+                    var addList = [];
+                    var addrList = component.get('v.addressList');
+                    if(addrList)
+                    {
+                        addrList.push(component.get('v.addressBook'));
+                        component.set('v.addressList' , addrList);
+                    }
+                    else
+                    {
+                       addList.push(component.get('v.addressBook'));
+                       component.set('v.addressList' , addList); 
+                    }
+
+                    console.log( "addList = ",addList)
+                    console.log(" addrList = ",addrList )
+                    console.log( " addressList ---",component.get('v.addressList'))
+                 //   component.set('v.isNewAddress', false);
+                } else if(saveResult.state === 'INCOMPLETE'){
+                    
+                }else if(saveResult.state === 'ERROR'){
+                    
+                }else{
+                    
+                }
+            });
         }
     }
 
