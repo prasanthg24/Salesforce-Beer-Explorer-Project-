@@ -44,7 +44,7 @@
                         cartId__c: response.getReturnValue()
                     }
                 };
-               
+               $A.get('e.force:refreshView').fire(); 
                 pageReference.navigate(pageReferenceNav, true);
               
             }else if(state === 'INCOMPLETE'){

@@ -6,13 +6,13 @@
             return validSoFar && inputCmp.get('v.validity').valid;
         }, true);
         return isValid; 
-	},
+    },
     fetchAddress : function(component, event, helper){
         var action = component.get('c.fetchAddressBook');
         
         action.setCallback(this, function(response){
             var state = response.getState();
-           // alert(state);
+            // alert(state);
             if(state === 'SUCCESS' || state === 'DRAFT'){
                 var responseData = response.getReturnValue();
                 var resultData = JSON.parse(responseData);
