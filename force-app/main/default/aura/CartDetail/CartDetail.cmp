@@ -8,22 +8,23 @@
     <aura:attribute name="isCouponAplied" type="Boolean" />
     <aura:attribute name="isCouponSuccess" type="Boolean" />
     <aura:attribute name="addressBook" type="Address_Book__c"
-                                                            default="{ 
-                                                                     sobjectType:'Address_Book__c',  
-                                                                     Street__c : '',
-                                                                     City__c:'',
-                                                                     State__c : '',
-                                                                     Country__c : '',
-                                                                     Postal_Code__c:''
-                                                                     }"/> 
+                    default="{ 
+                             sobjectType:'Address_Book__c',  
+                             Street__c : '',
+                             City__c:'',
+                             State__c : '',
+                             Country__c : '',
+                             Postal_Code__c:''
+                             }"/> 
     <aura:attribute name="record" type="Object" />
     <aura:attribute name="recordError" type="String" />
     <aura:attribute name="isCheckout" type="Boolean" />
     <aura:attribute name="addressList" type="Object" />
     <aura:attribute name="isNewAddress" type="Boolean" />
-      <aura:attribute name="selectedAddress" type="Object" />
+    <aura:attribute name="selectedAddress" type="Object" />
     <lightning:navigation aura:id="navigation" />
     <aura:handler name="change" value="{!v.isCheckout}" action="{!c.getAddress}" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
@@ -34,18 +35,27 @@
                       targetRecord="{!v.record}"
                       targetFields="{!v.addressBook}"
                       targetError="{!v.recordError}"/>
-
+    
     <div  class="slds-p-around_medium"> 
         <div class="c-container">
             <lightning:layout multipleRows="true">
                 <!--Header-->
                 <lightning:layoutItem padding="around-small" size="12">
-                    <div class="page-section page-header" 
+                    <!--<div class="page-section page-header" 
                          style =" background-color: #021a1b;
                                  text-align: center;
                                  color:white;">
-                        <h1> Cart Details </h1>
-                    </div>
+                        <h1> Cart Details </h1>-->
+                        
+                        <h2 class="slds-text-title_caps" style="height: 55px;
+                                                                            background: #greensea;
+                                                                            line-height: 3;
+                                                                            padding-left: 10px;
+                                                                            font-size: 19px;
+                                                                            font-weight: bold;">
+                                        SHOPPING CART({!v.cartItemList.length} &nbsp; items)
+                                    </h2>
+                  <!--  </div>-->
                 </lightning:layoutItem>
                 
                 <lightning:layoutItem padding="around-small" size="12">
@@ -68,7 +78,7 @@
                                             <c:CartItem cartItem="{!item}" index="{!index}"/>
                                             <br> </br>
                                         </aura:iteration>
-                                       
+                                        
                                         <!--Buttons -->
                                         <lightning:buttonGroup>
                                             <lightning:button label="Continue Shopping"
@@ -82,7 +92,7 @@
                                         
                                         <aura:set attribute="else">
                                             <img src="https://media1.giphy.com/media/jtECu4KjK3cqiAUMyR/giphy.gif" 
-                                                 	class="slds-align_absolute-center" />
+                                                 class="slds-align_absolute-center" />
                                             <br/>
                                             <a href="JavaScript:void(0);" 
                                                class="slds-align_absolute-center" 
@@ -101,8 +111,8 @@
                                 <div class="page-section page-main">
                                     <h1>Select Billing/Shipping Address</h1>
                                     
-                                    <!-- <aura:if isTrue="{!and(v.addressList.length > 0, !v.isNewAddress)}">-->
-                                    <aura:if isTrue="{!v.addressList.length > 0}">
+                                     <aura:if isTrue="{!and(v.addressList.length > 0, !v.isNewAddress)}">
+                              <!--      <aura:if isTrue="{!v.addressList.length > 0}">-->
                                         <div class="slds-grid slds-wrap">
                                             <aura:iteration items="{!v.addressList}" var="item" 
                                                             indexVar="index">
@@ -117,9 +127,13 @@
                                                                                 postalCode="{!item.Postal_Code__c}"
                                                                                 disabled="true"
                                                                                 />
+                                                   <p><lightning:formattedEmail value="{!item.Email_ID__c}" /></p>
+                                                    
+
                                                 </div>
                                             </aura:iteration>
                                         </div>
+                                        <Br></Br>
                                         <lightning:button name="Place Order" label="Place Order" 
                                                           variant="brand" onclick="{!c.placeOrder}"/>
                                         <lightning:button name="Add New Address" label="Add New Address" 
@@ -158,7 +172,15 @@
                                                              label="PostalCode"
                                                              required="true"
                                                              value="{!v.addressBook.Postal_Code__c}"
-                                                             placeholder="type here..."/>                 
+                                                             placeholder="type here..."/>      
+                                            <lightning:input aura:id="address"
+                                                             name="Email" 
+                                                             label="Email Id"
+                                                             required="true"
+                                                             value="{!v.addressBook.Email_ID__c}"
+                                                             placeholder="type here..."/>      
+<br></br>
+                                            
                                             <lightning:button variant="brand" 
                                                               label="save address"
                                                               onclick="{!c.doSaveAddress}"/>

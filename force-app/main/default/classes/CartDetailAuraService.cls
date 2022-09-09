@@ -114,7 +114,7 @@ public class CartDetailAuraService
     public static string fetchAddressBook ()
     {
         
-        List<Address_Book__c> add = [SELECT Id, Name, City__c, State__c, Postal_Code__c, Country__c, Street__c, User__c
+        List<Address_Book__c> add = [SELECT Id, Name, City__c, State__c, Postal_Code__c, Country__c, Street__c, User__c,Email_ID__c
                                      FROM Address_Book__c   
                                      WHERE User__c=:userinfo.getUserId() ];
         return JSON.serialize(add);

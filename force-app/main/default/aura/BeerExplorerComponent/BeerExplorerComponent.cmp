@@ -11,7 +11,7 @@
     <aura:attribute name="beerRecord" type="Object"/>
     
     <div>
-        <c:HeaderComponent  aura:id="headerComp" Heading="Beer Explorer " Message="Salesforce Batch 1 Team !!!"/>
+        <c:HeaderComponent  aura:id="headerComp" Heading="Beer World " Message="Order the Best Beer"/>
     </div>
     
     <div  style ="background-color:orange;">

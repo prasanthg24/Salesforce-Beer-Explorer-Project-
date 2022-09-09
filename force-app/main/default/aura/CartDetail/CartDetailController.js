@@ -88,7 +88,7 @@
                                        component.set('v.cartItemList', items);
                                        console.log( "items" , items);
                                        
-                                    
+                                       
                                    }
                                    else if(stateResponse === 'INCOMPLETE')
                                    {
@@ -188,7 +188,7 @@
                         component.set('v.addressList' , addList); 
                     }
                     
-                    //   component.set('v.isNewAddress', false);
+                component.set('v.isNewAddress', false);
                 } else if(saveResult.state === 'INCOMPLETE'){
                     
                 }else if(saveResult.state === 'ERROR'){
@@ -207,6 +207,10 @@
             helper.fetchAddress(component, event, helper);
         } 
     },
+    reInit :  function(component, event, helper) 
+    {
+         $A.get('e.force:refreshView').fire();
+    },
     
     onSelect : function(component, event, helper)
     {
@@ -214,7 +218,7 @@
         var checked =  event.getSource().get("v.value");
         var allAddress = component.get('v.addressList');
         var selecedAddress = allAddress[selected];
-    //   console.log('selecedAddress ', selecedAddress);
+        //   console.log('selecedAddress ', selecedAddress);
         component.set('v.selectedAddress', selecedAddress);
         console.log(' selected address ==== ', component.get('v.selectedAddress'));
     }
@@ -226,11 +230,11 @@
         var cartId = component.get('v.cartId');
         if(selectedAdd)
         {
-          console.log("selected Address - ID -- ", selectedAdd.Id);
-          console.log("selected CART - ID-- ", cartId);
-          console.log("User - ID -- ",userId);
+            console.log("selected Address - ID -- ", selectedAdd.Id);
+            console.log("selected CART - ID-- ", cartId);
+            console.log("User - ID -- ",userId);
             console.log("Sub total = ",component.get('v.subTotal'));
-          var action = component.get('c.createOrder');
+            var action = component.get('c.createOrder');
             action.setParams({
                 addressId : selectedAdd.Id,
                 cartId : cartId,
@@ -251,6 +255,7 @@
                         "Your tracking Order no is "+resustData.split('####')[0]
                     });
                     showToast.fire();
+                    $A.get('e.force:refreshView').fire(); 
                     var pageReference = component.find("navigation");
                     var pageReferenceNav = {    
                         "type": "standard__recordPage",
@@ -274,6 +279,10 @@
         }else{
             alert('Please Select Address');
         }
+    },
+    addNewAddress : function(component, event, helper){
+        
+        component.set('v.isNewAddress', true);
     }
     
 })
