@@ -10,8 +10,8 @@
      
     updateBeerQty : function(component, event, totalQnty, recordId){
         var beetQnty = component.get('v.simpleRecord.Total_Quantity__c');
-        alert(beetQnty)
-        alert(recordId)
+       // alert(beetQnty)
+       // alert(recordId)
         var remainingQnty = parseInt(beetQnty) - parseInt(totalQnty)
         console.log(remainingQnty)
         component.set('v.simpleRecord.Total_Quantity__c',remainingQnty);

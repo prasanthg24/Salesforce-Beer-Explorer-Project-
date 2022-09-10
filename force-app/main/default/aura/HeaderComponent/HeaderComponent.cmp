@@ -1,21 +1,35 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
     <aura:attribute name ="Heading" type ="String" access ="public" />
     <aura:attribute name ="Message" type ="String" access ="public" />
-      <aura:attribute name="recordList" type="Object" />
+    <aura:attribute name="recordList" type="Object" />
     
     
     <aura:method name="updateCart" action="{!c.updateCart}" access="public">
         <aura:attribute name="beerRecord" type="Object" />
     </aura:method>
     
-    
+    <!--background-image: url('https://acegif.com/wp-content/uploads/gif/beer-101.gif');
+    background-color:#000C66;
+        https://acegif.com/wp-content/uploads/gif/beer-101.gif
+    background-repeat: no-repeat;
+-->
     <div class="slds-page-header " style ="
-                                         
-background-image: url('https://www.designyourway.net/diverse/darkpat/wallpaper_800x600_1536.jpg');
+                                           
+                                           
+                             background-image: url('
+                                           
+                                   
+https://c4.wallpaperflare.com/wallpaper/250/245/242/beer-food-alcohol-minimalism-artwork-hd-wallpaper-preview.jpg
+                                           '
+                                           
+                                           );              
                                            font-size: xxx-large;
                                            text-align: center;
-                                           font-family: Franklin Gothic Medium;
-                                           color: white;">
+                                           font-family:Copperplate Gothic Light;
+                                           
+                                           color: black;"
+         
+         >
         <div class="slds-page-header__row">
             <div class="slds-page-header__col-title">
                 <div class="slds-media">
@@ -23,16 +37,17 @@ background-image: url('https://www.designyourway.net/diverse/darkpat/wallpaper_8
                     </div>
                     <div class="slds-media__body">
                         <div class="slds-page-header__name">
-                            <div class="slds-page-header__name-title">
+                            <div class="slds-page-header__name-title" style="
+                                                                    color: azure;
+                                                                             ">
+                                 
                                 <h1>
                                     {!v.Heading}
                                 </h1>
+                                
+                              
                             </div>
                         </div>
-                        <p>
-                           Order the Best Beer
-                            <!--{!v.Message}-->
-                        </p>
                     </div>
                 </div>
             </div>

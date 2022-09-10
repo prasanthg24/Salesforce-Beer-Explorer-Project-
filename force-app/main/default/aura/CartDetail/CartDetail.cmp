@@ -25,7 +25,7 @@
     <lightning:navigation aura:id="navigation" />
     <aura:handler name="change" value="{!v.isCheckout}" action="{!c.getAddress}" />
     <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
-
+    
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
     <!-- LDS for Create Record -->
@@ -46,16 +46,16 @@
                                  text-align: center;
                                  color:white;">
                         <h1> Cart Details </h1>-->
-                        
-                        <h2 class="slds-text-title_caps" style="height: 55px;
-                                                                            background: #greensea;
-                                                                            line-height: 3;
-                                                                            padding-left: 10px;
-                                                                            font-size: 19px;
-                                                                            font-weight: bold;">
-                                        SHOPPING CART({!v.cartItemList.length} &nbsp; items)
-                                    </h2>
-                  <!--  </div>-->
+                    
+                    <h2 class="slds-text-title_caps" style="height: 55px;
+                                                            background: #F0D9FF;
+                                                            line-height: 3;
+                                                            padding-left: 10px;
+                                                            font-size: 19px;
+                                                            font-weight: bold;">
+                          <center>SHOPPING CART ( {!v.cartItemList.length} &nbsp; items) </center>
+                    </h2>
+                    <!--  </div>-->
                 </lightning:layoutItem>
                 
                 <lightning:layoutItem padding="around-small" size="12">
@@ -107,35 +107,40 @@
                         
                         <!--Address Creation-->
                         <aura:if isTrue="{!v.isCheckout}" >
-                            <lightning:layoutItem padding="around-small" size="8">
+                            <lightning:layoutItem padding="around-small" size="8" >
                                 <div class="page-section page-main">
-                                    <h1>Select Billing/Shipping Address</h1>
-                                    
-                                     <aura:if isTrue="{!and(v.addressList.length > 0, !v.isNewAddress)}">
-                              <!--      <aura:if isTrue="{!v.addressList.length > 0}">-->
-                                        <div class="slds-grid slds-wrap">
+                                    <h1><b> Select Billing/Shipping Address </b></h1>
+                                    <br></br>
+                                    <aura:if isTrue="{!and(v.addressList.length > 0, !v.isNewAddress)}">
+                                        <!--      <aura:if isTrue="{!v.addressList.length > 0}">-->
+                                        <div class="slds-grid slds-wrap"   >
                                             <aura:iteration items="{!v.addressList}" var="item" 
                                                             indexVar="index">
-                                                <div class="slds-col slds-size_1-of-2">
-                                                    <ui:inputRadio aura:id="r0" name="others" label="" 
-                                                                   change="{!c.onSelect}" text="{!index}"/>
-                                                    <lightning:formattedAddress
-                                                                                street="{!item.Street__c}"
-                                                                                city="{!item.City__c}"
-                                                                                province="{!item.State__c}"
-                                                                                country="{!item.Country__c}"
-                                                                                postalCode="{!item.Postal_Code__c}"
-                                                                                disabled="true"
-                                                                                />
-                                                   <p><lightning:formattedEmail value="{!item.Email_ID__c}" /></p>
+                                                <div class="slds-col slds-size_1-of-3">
                                                     
-
+                                                    <div class="slds-col" >
+                                                        <ui:inputRadio aura:id="r0" name="others" label="" 
+                                                                       change="{!c.onSelect}" text="{!index}"/>
+                                                        <lightning:formattedAddress
+                                                                                    street="{!item.Street__c}"
+                                                                                    city="{!item.City__c}"
+                                                                                    province="{!item.State__c}"
+                                                                                    country="{!item.Country__c}"
+                                                                                    postalCode="{!item.Postal_Code__c}"
+                                                                                    disabled="true"
+                                                                                    />
+                                                        <p><lightning:formattedEmail value="{!item.Email_ID__c}" /></p>
+                                                        <br></br>
+                                                    </div> 
+                                                    
                                                 </div>
+                                                
                                             </aura:iteration>
                                         </div>
                                         <Br></Br>
                                         <lightning:button name="Place Order" label="Place Order" 
                                                           variant="brand" onclick="{!c.placeOrder}"/>
+                                        &nbsp;&nbsp;
                                         <lightning:button name="Add New Address" label="Add New Address" 
                                                           variant="brand" onclick="{!c.addNewAddress}"/>
                                         
@@ -179,7 +184,8 @@
                                                              required="true"
                                                              value="{!v.addressBook.Email_ID__c}"
                                                              placeholder="type here..."/>      
-<br></br>
+                                            <br></br>
+                                            
                                             
                                             <lightning:button variant="brand" 
                                                               label="save address"
@@ -194,12 +200,14 @@
                         
                         <!-- Side Bar Component-->
                         <lightning:layoutItem padding="around-small" size="4">
-                            <div class="page-section page-right">
-                                
-                            </div>
+                          
                             
                             <aura:if isTrue="{!v.cartItemList.length > 0}">
+                                  <div class="page-section page-right">
+                               
+                            </div>
                                 <div class="page-section page-right">
+                                    
                                     <b>Subtotal - ({!v.cartItemList.length} items):</b> &nbsp;
                                     <lightning:formattedNumber 
                                                                label="Price" 
@@ -255,12 +263,12 @@
                             
                             
                             
-                            <div class="page-section page-right">
+                           <!-- <div class="page-section page-right">
                                 <h2>Frequently Purchased..</h2>
                                 <p>
                                     
                                 </p>
-                            </div>
+                            </div>-->
                             
                         </lightning:layoutItem>
                     </lightning:layout>
@@ -269,10 +277,11 @@
                 
                 
                 <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
-                    <div class="page-footer page-section" style =" background-color: #020200;
+                    <div class="page-footer page-section" style =" 
                                                                   text-align: center;
-                                                                  color:#FEFEDF;"           >
-                        <h2>By Salesforce Badge 1 Team </h2>
+                                                                    background: #F0D9FF;
+                                                                           "  >
+                        <h2>Beer World Team !!! </h2>
                     </div>
                 </lightning:layoutItem>
             </lightning:layout>

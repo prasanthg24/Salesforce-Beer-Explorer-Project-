@@ -3,7 +3,13 @@
     
     <div class="slds-p-around_medium"  style="
                                           
-                                              background-image: url('https://images.template.net/wp-content/uploads/2014/10/pattern-background1.jpg');   
+                  
+                                        
+                                           
+                                           
+background-image: url(' https://acegif.com/wp-content/uploads/gif/beer-62.gif');                                                       
+                     
+                                              
                                               ">
         <lightning:input
                          name="inline-search-input"

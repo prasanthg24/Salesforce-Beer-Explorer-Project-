@@ -1,7 +1,7 @@
 <aura:component implements="lightning:isUrlAddressable">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="orderId" type="String"/>
-    
+        <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
     <aura:attribute name="record" type="Object" />
     <aura:attribute name="orderRecord" type="Object" />
     <aura:attribute name="targetError" type="String" />
@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div class="slds-p-around_small">
+    <div class="slds-p-around_small" style="background-color:#bfc0c0;">
         <lightning:recordForm recordId="{!v.orderId}"
                               objectApiName="Beer_Order__c"
                               layoutType="Full"

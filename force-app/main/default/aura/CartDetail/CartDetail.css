@@ -1,22 +1,25 @@
 .THIS {
-                    background:#70e4e2;
-                }
-                .THIS.c-container {
-                    border: 1px solid #00275d;
-                    margin: 10px 0 20px 0;
-                }
-                .THIS .page-section {
-                    border: solid 1px #1a8be8;
-                    padding: 1rem;
-                }
-                .THIS .page-header,
-                .THIS .page-footer {
-                    height: 50px;
-                }
-                .THIS .page-main {
-                    background: #e7f5f6;
-                }
-                .THIS .page-left,
-                .THIS .page-right {
-                    background: #f0efef;
-                }
+                background:#11324D;
+    color:black;
+            }
+            .THIS.c-container {
+                border: 2px solid #C2B0C9;
+                margin: 10px 0 20px 0;
+            }
+            .THIS .page-section {
+                border: solid 2px #C2B0C9;
+                padding: 1rem;
+            }
+            .THIS .page-header,
+            .THIS .page-footer {
+                height: 50px;
+       border: 2px solid #C2B0C9;
+                background:#EEE3CB;
+            }
+            .THIS .page-main {
+                background:#D6E5FA;
+            }
+            .THIS .page-left,
+            .THIS .page-right {
+                background: #D6E5FA;
+            }

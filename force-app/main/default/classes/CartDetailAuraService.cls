@@ -2,14 +2,15 @@ public class CartDetailAuraService
 {
     
     private static List<Coupon__c> getCoupon(String Name){
-        List<Coupon__c> coupon = [Select Id, Price__c From Coupon__c Where Name =: Name];
+        List<Coupon__c> coupon = [Select Id, Price__c  ,Expired__c,Remaining_Quantity__c, Total_Quantity__c From Coupon__c Where Name =: Name];
         return coupon;
     }
     
     @AuraEnabled
     public static Decimal checkCoupon(String Name, String CartId){
         List<Coupon__c> couponList =  getCoupon(Name);
-        if(couponList !=null && couponList.size() > 0){
+        if(couponList !=null && couponList.size() > 0 && !couponList[0].Expired__c
+          && couponList[0].Remaining_Quantity__c>0){
             Cart__c cart = new Cart__c(Id = cartId, Coupon__c =couponList[0].Id );
             update cart;
             return couponList[0].Price__c;

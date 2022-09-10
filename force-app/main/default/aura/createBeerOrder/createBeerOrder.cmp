@@ -3,7 +3,7 @@
  
     <lightning:navigation aura:id="navigation" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    
+        <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
 
     <!-- USE LDS to get the new template of Beer Order Record -->
     <aura:attribute name="newRecordObject" type="Object"/>
@@ -32,7 +32,16 @@
                       mode="EDIT" />
     
     
-    
+    <h2 class="slds-text-title_caps" style="height: 55px;
+                                            background:#14213d;
+                                            line-height: 3;
+                                            padding-left: 10px;
+                                            font-size: 19px;
+                                            font-weight: bold;
+                                            color:white;
+                                            ">
+                          <center>CREATE BEER ORDER </center>
+                    </h2>    
     <!-- Create Beer Record Form -->
     <div class="slds-p-around_small">
         <div class="slds-grid slds-wrap">

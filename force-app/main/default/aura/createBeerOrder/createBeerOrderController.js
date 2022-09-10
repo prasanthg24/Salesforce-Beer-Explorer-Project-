@@ -1,4 +1,8 @@
 ({
+    reInit :  function(component, event, helper) 
+    {
+         $A.get('e.force:refreshView').fire();
+    },
     doInit : function(component, event, helper) {
         var pageReference = component.get('v.pageReference');
         if(pageReference){

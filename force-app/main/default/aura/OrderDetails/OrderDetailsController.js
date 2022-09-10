@@ -6,5 +6,10 @@
             component.set('v.orderId' , state.c__orderId);
             component.find('recordViewer').reloadRecord();
         }
-	}
+	},
+    
+    reInit :  function(component, event, helper) 
+    {
+         $A.get('e.force:refreshView').fire();
+    }
 })

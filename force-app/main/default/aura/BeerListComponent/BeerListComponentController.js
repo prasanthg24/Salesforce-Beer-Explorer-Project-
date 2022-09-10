@@ -20,7 +20,7 @@
                     component.find("overlayLib").showCustomModal({
                         header: "Beer Detail ",
                         body: beerDetails,
-                        footer:"Footer Test",
+                        footer:"",
                         closeCallback: function() 
                         {
                             
