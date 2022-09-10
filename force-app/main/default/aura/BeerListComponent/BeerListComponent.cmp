@@ -25,7 +25,7 @@
         <aura:iteration items="{!v.recordList}" var="item" indexVar = "index">
             <div class="slds-col slds-size_1-of-4 slds-p-around_small">
                 <lightning:card  title="{!item.Name}" footer="{!item.Brewery_Name__c}"
-                                iconName="custom:custom7" >
+                                iconName="custom:shipment" >
                     <p class="slds-p-horizontal_small">
                         
                         <div class="slds-grid slds-gutters">
