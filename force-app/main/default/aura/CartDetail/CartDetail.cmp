@@ -25,7 +25,6 @@
     <lightning:navigation aura:id="navigation" />
     <aura:handler name="change" value="{!v.isCheckout}" action="{!c.getAddress}" />
     <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
-    
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
     <!-- LDS for Create Record -->
@@ -99,7 +98,8 @@
                                                onclick='{!c.homePage}'>
                                                 <b>  Click Here to add Items</b>
                                             </a>
-                                        </aura:set>                                    
+                                        </aura:set>               
+                                        
                                     </aura:if>
                                 </div>
                             </lightning:layoutItem>
